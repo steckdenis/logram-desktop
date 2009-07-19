@@ -1,0 +1,10 @@
+CONFIG += plugin debug
+TEMPLATE = lib
+INCLUDEPATH += ../include /usr/include/logram ../../../misc/include ../../../lio/include
+SOURCES += openwith.cpp
+HEADERS += openwith.h
+TARGET = openwith
+DESTDIR = ..
+DEPENDPATH += .
+QT += network
+LIBS += -L../../../misc -L../../../lio -llio -llmisc

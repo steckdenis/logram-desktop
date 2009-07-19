@@ -1,0 +1,21 @@
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN" "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
+
+<Menu>
+        <Name>Configuration</Name>
+        <Directory>X-LOGRAM-System-settings.directory</Directory>
+        
+        <DefaultAppDirs/>
+        <DefaultDirectoryDirs/>
+        
+        <Menu>
+                <Name>Appearance</Name>
+                <Directory>X-LOGRAM-Settings-appearance.directory</Directory>
+                
+                <Include>
+                        <And>
+                                <Category>X-LOGRAM-SETTINGS</Category>
+                                <Category>X-LOGRAM-APPEARANCE</Category>
+                        </And>
+                </Include>
+        </Menu>
+</Menu>

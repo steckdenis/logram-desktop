@@ -1,0 +1,10 @@
+CONFIG += plugin
+TEMPLATE = lib
+INCLUDEPATH += ../include /usr/include/logram ../../../lio/include
+SOURCES += newfile.cpp
+HEADERS += newfile.h
+TARGET = newfile
+DESTDIR = ..
+DEPENDPATH += .
+QT += network
+LIBS += -L ../../../lio -llio

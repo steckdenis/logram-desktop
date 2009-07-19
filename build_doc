@@ -1,0 +1,65 @@
+#!/bin/bash
+
+# build_doc
+# This file is part of Logram
+#
+# Copyright (C) 2008 - Denis Steckelmacher <steckdenis@yahoo.fr>
+#
+# Logram is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# Logram is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Logram; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor,
+# Boston, MA  02110-1301  USA
+
+################################################################################
+####                                                                        ####
+####  Ce fichier contient un script qui permet de construire la             ####
+####  documentation de Logram.                                              ####
+####                                                                        ####
+####  Utilisation :                                                         ####
+####  -------------                                                         ####
+####                                                                        ####
+####    build_doc fichier/Doxygen/de/base                                   ####
+####                                                                        ####
+####  Description :                                                         ####
+#### --------------                                                         ####
+####                                                                        ####
+####    Parcourt les sources de Logram à la recherche de fichiers           ####
+####    Doxyproject et génère la documentation du projet qu'ils gèrent      ####
+####    en fonction des instructions qu'ils contiennent                     ####
+####                                                                        ####
+####    Le fichier Doxyfile commun aux projets se trouve à l'emplacement    ####
+####    spécifié par le premier paramètre.                                  ####
+####                                                                        ####
+####    La documentation est placée dans le répertoire spécifié             ####
+####    dans le fichier Doxyfile de base, auquel on a ajouté l'identifiant  ####
+####    du projet                                                           ####
+####                                                                        ####
+################################################################################
+
+#### Trouver la liste des fichier ####
+for fl in `find . -name Doxyproject`
+do
+	# Lire le contenu
+	source $fl
+
+	# Créer le fichier Doxygen personnalisé
+	rm /tmp/tdxfile{A,B}
+
+	sed -e "s/%%PROJECT_NAME%%/$project_name/g" $1 > /tmp/tdxfileA
+	sed -e "s/%%PROJECT_ID%%/$project_id/g" /tmp/tdxfileA > /tmp/tdxfileB
+	sed -e "s/%%PROJECT_VERSION%%/$project_version/g" /tmp/tdxfileB > /tmp/tdxfileA
+	sed -e "s/%%IGNORE_PREFIX%%/$ignore_prefix/g" /tmp/tdxfileA > /tmp/tdxfileB
+
+	# Se placer dans le dossier et lancer Doxygen
+	(cd `dirname $fl` && doxygen /tmp/tdxfileB)
+done

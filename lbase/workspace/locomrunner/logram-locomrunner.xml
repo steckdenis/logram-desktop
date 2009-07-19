@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+        <mime-type type="application/x-locom-executable">
+                <comment xml:lang="en">LoCoM Runner Script</comment>
+                <comment xml:lang="fr">Script LoCoM Runner</comment>
+
+                <glob pattern="*.locom"/>
+        </mime-type>
+</mime-info>

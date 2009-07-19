@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for file in *.ts
+do
+	lrelease $file
+done
+
+mv -f *.qm releases

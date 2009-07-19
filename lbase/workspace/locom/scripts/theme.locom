@@ -1,0 +1,49 @@
+<application>
+        <configfile type="qsettings" name="config">
+                <path>~/.config/Logram/Theme.conf</path>
+        </configfile>
+        
+        <window name="mainWindow" main="true">
+                <ui>theme.ui</ui>
+                
+                <bindings>
+                        <config object="txtThemePath" property="text" configfile="config" key="ImagePath" />
+                        <config object="txtIconTheme" property="text" configfile="config" key="IconTheme" />
+                        
+                        <config object="spTitleBarHeight" property="value" configfile="config" key="Windows/TitleBarHeight" />
+                        <config object="spBorderSize" property="value" configfile="config" key="Windows/BorderWidth" />
+                        <config object="spCornerSize" property="value" configfile="config" key="Windows/CornerSize" />
+                        <config object="cboFont" property="currentText" configfile="config" key="Windows/TitlebarFontName" />
+                        <config object="spFontSize" property="value" configfile="config" key="Windows/TitlebarFontSize" />
+                        <config object="txtFontColor" property="text" configfile="config" key="Windows/TitleColor" />
+                        
+                        <config object="cboPosition" property="currentIndex" configfile="config" key="RoundMenu/Position" />
+                        <config object="spStartMenuSize" property="value" configfile="config" key="RoundMenu/StartMenuSize" />
+                        <config object="spStageSize" property="value" configfile="config" key="RoundMenu/StageSize" />
+                        <config object="spEntriesSpacing" property="value" configfile="config" key="RoundMenu/EntriesSpacing" />
+                        <config object="spButtonSize" property="value" configfile="config" key="RoundMenu/ButtonSize" />
+                        <config object="txtBorderColor" property="text" configfile="config" key="RoundMenu/BorderColor" />
+                        
+                        <config object="spDBorderSize" property="value" configfile="config" key="DesktopPlugin/BorderSize" />
+                        <config object="spDTitleBarHeight" property="value" configfile="config" key="DesktopPlugin/TitlebarHeight" />
+                        <config object="spDCornerSize" property="value" configfile="config" key="DesktopPlugin/CornerSize" />
+                        <config object="spDFontSize" property="value" configfile="config" key="DesktopPlugin/FontSize" />
+                        <config object="txtDTextColor" property="text" configfile="config" key="DesktopPlugin/TextColor" />
+                        <config object="txtDBackgroundColor" property="text" configfile="config" key="DesktopPlugin/BackgroundColor" />
+                        <config object="trkBgAlpha" property="value" configfile="config" key="DesktopPlugin/BackgroundAlpha" />
+                        
+                        <config object="txtTabsBgColor" property="text" configfile="config" key="Tab/BackgroundColor" />
+                        <config object="txtTabsBorderColor" property="text" configfile="config" key="Tab/BorderColor" />
+                        <config object="spDItemWidth" property="value" configfile="config" key="Desktop/ItemWidth" />
+                        <config object="spDIconHeight" property="value" configfile="config" key="Desktop/ItemHeight" />
+                        <config object="cboTaskPos" property="currentIndex" configfile="config" key="TaskBar/Position" />
+                        <config object="spTaskItemSpacing" property="value" configfile="config" key="TaskBar/ItemSpacing" />
+                        <config object="spTaskHeight" property="value" configfile="config" key="TaskBar/Height" />
+                        <config object="txtSysTrayBgColor" property="text" configfile="config" key="NotifyArea/BackgroundColor" />
+                        <config object="spSysTrayIconSize" property="value" configfile="config" key="NotifyArea/IconSize" />
+                        <config object="spSysTrayIconSpacing" property="value" configfile="config" key="NotifyArea/IconMargin" />
+                        
+                        <predef object="buttonBox" signal="accepted()" function="saveConfig" />
+                </bindings>
+        </window>
+</application>

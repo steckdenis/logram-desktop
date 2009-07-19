@@ -1,0 +1,9 @@
+CONFIG += plugin debug
+TEMPLATE = lib
+INCLUDEPATH += ../../include /usr/include/logram ../../../../misc/include/ ../../../../windowsystem/include/
+SOURCES += notify.cpp
+HEADERS += notify.h
+TARGET = lnotify
+DESTDIR = ../..
+DEPENDPATH += .
+LIBS += -L ../../../../misc/ -llmisc -L../../../../windowsystem -llwindowsystem -lX11

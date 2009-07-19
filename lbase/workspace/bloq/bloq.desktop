@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=BLoQ File manager
+Name[fr]=Explorateur de fichiers BLoQ
+Name[en]=BLoQ File manager
+Name[nl]=Bestandsbrowser Bloq
+Comment=Manages and shows files and directories
+Comment[fr]=Gère et affiche les fichiers et les dossiers
+Comment[en]=Manages and shows files and directories
+Comment[nl]=Beheert en displays bestanden en mappen
+Icon=file-manager
+Exec=bloq
+Categories=Utility;Qt

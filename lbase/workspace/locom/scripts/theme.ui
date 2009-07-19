@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QWidget" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>554</width>
+    <height>435</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Logram's theme</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="minimumSize">
+      <size>
+       <width>542</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>General</string>
+      </attribute>
+      <layout class="QFormLayout" name="formLayout_3">
+       <item row="0" column="0">
+        <widget class="QLabel" name="lblThemePath">
+         <property name="text">
+          <string>Theme path</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="txtThemePath"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="lblIconTheme">
+         <property name="text">
+          <string>Icon theme&lt;sup&gt;1&lt;/sup&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="txtIconTheme"/>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>&lt;sup&gt;1&lt;/sup&gt; Must be the name of a folder in /usr/share/icons</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Window decorator</string>
+      </attribute>
+      <layout class="QFormLayout" name="formLayout">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::ExpandingFieldsGrow</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="lblTitleBarHeight">
+         <property name="text">
+          <string>Height of the title bar</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="spTitleBarHeight"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="lblBorderSize">
+         <property name="text">
+          <string>Windows' border size*</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="spBorderSize"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="lblCornerSize">
+         <property name="text">
+          <string>Corner size</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QSpinBox" name="spCornerSize"/>
+       </item>
+       <item row="3" column="0" colspan="2">
+        <widget class="Line" name="line">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="lblFontName">
+         <property name="text">
+          <string>Font name*</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QFontComboBox" name="cboFont"/>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="lblFontSize">
+         <property name="text">
+          <string>Font size</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QSpinBox" name="spFontSize"/>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="lblFontColor">
+         <property name="text">
+          <string>Font color*</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QLineEdit" name="txtFontColor"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_3">
+      <attribute name="title">
+       <string>Round menu</string>
+      </attribute>
+      <layout class="QFormLayout" name="formLayout_2">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::ExpandingFieldsGrow</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="lblPosition">
+         <property name="text">
+          <string>Position*</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="cboPosition">
+         <item>
+          <property name="text">
+           <string>Left</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Right</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Top</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Bottom</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="lblStartMenuSize">
+         <property name="text">
+          <string>Start menu's size</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="spStartMenuSize"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="lblStageSize">
+         <property name="text">
+          <string>Stage size</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QSpinBox" name="spStageSize"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="lblEntriesSpacing">
+         <property name="text">
+          <string>Space between entries*</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QSpinBox" name="spEntriesSpacing"/>
+       </item>
+       <item row="5" column="0" colspan="2">
+        <widget class="Line" name="line_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="lblButtonSize">
+         <property name="text">
+          <string>Button's size</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QSpinBox" name="spButtonSize"/>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="lblBorderColor">
+         <property name="text">
+          <string>Border color*</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QLineEdit" name="txtBorderColor"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_4">
+      <attribute name="title">
+       <string>Desktop Widgets</string>
+      </attribute>
+      <layout class="QFormLayout" name="formLayout_4">
+       <item row="0" column="0">
+        <widget class="QLabel" name="lblDBorderSize">
+         <property name="text">
+          <string>Border size*</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="spDBorderSize"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="lblDTitlebarHeight">
+         <property name="text">
+          <string>Titlebar height</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="spDTitleBarHeight"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="lblDCornerSize">
+         <property name="text">
+          <string>Corner size</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QSpinBox" name="spDCornerSize"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="lblDFontSize">
+         <property name="text">
+          <string>Font size</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QSpinBox" name="spDFontSize"/>
+       </item>
+       <item row="4" column="0" colspan="2">
+        <widget class="Line" name="line_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="lblDTextColor">
+         <property name="text">
+          <string>Text color*</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLineEdit" name="txtDTextColor"/>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="lblDBackgoundColor">
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="text">
+          <string>Backgound color</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QLineEdit" name="txtDBackgroundColor"/>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="lblDBgAlpha">
+         <property name="text">
+          <string>Background opacity</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QSlider" name="trkBgAlpha">
+         <property name="maximum">
+          <number>256</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_5">
+      <attribute name="title">
+       <string>Desktop miscellaneous</string>
+      </attribute>
+      <layout class="QFormLayout" name="formLayout_5">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::ExpandingFieldsGrow</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="lblTabsBgColor">
+         <property name="text">
+          <string>Tabs' background color</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="txtTabsBgColor"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="lblTabsBorderColor">
+         <property name="text">
+          <string>Tabs' border color</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="txtTabsBorderColor"/>
+       </item>
+       <item row="2" column="0" colspan="2">
+        <widget class="Line" name="line_4">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="lblDItemWidth">
+         <property name="text">
+          <string>Desktop icons width*</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QSpinBox" name="spDItemWidth"/>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="lblDIconHeight">
+         <property name="text">
+          <string>Desktop icons height*</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QSpinBox" name="spDIconHeight"/>
+       </item>
+       <item row="5" column="0" colspan="2">
+        <widget class="Line" name="line_5">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="lblTaskPos">
+         <property name="text">
+          <string>Taskbar position*</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QComboBox" name="cboTaskPos">
+         <item>
+          <property name="text">
+           <string>Top Left</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Top Right</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Bottom Left</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Bottom Right</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="lblTaskItemSpacing">
+         <property name="text">
+          <string>Taskbar's items spacing*</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QSpinBox" name="spTaskItemSpacing"/>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="lblTaskHeight">
+         <property name="text">
+          <string>Taskbar's height</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QSpinBox" name="spTaskHeight"/>
+       </item>
+       <item row="9" column="0" colspan="2">
+        <widget class="Line" name="line_6">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="0">
+        <widget class="QLabel" name="lblSysTrayBgColor">
+         <property name="text">
+          <string>System tray's background color</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <widget class="QLineEdit" name="txtSysTrayBgColor"/>
+       </item>
+       <item row="11" column="0">
+        <widget class="QLabel" name="lblSysTrayIconSize">
+         <property name="text">
+          <string>System tray's icons size</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="1">
+        <widget class="QSpinBox" name="spSysTrayIconSize"/>
+       </item>
+       <item row="12" column="0">
+        <widget class="QLabel" name="lblSysTrayIconSpacing">
+         <property name="text">
+          <string>System tray's icons spacing*</string>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="1">
+        <widget class="QSpinBox" name="spSysTrayIconSpacing"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>* Items that can be safely modified (without breaking the desig)</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>492</x>
+     <y>415</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>525</x>
+     <y>394</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

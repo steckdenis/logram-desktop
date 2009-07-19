@@ -1,0 +1,9 @@
+CONFIG += plugin
+TEMPLATE = lib
+INCLUDEPATH += ../../include /usr/include/logram ../../../../windowsystem/include/
+SOURCES += taskbar.cpp
+HEADERS += taskbar.h
+TARGET = taskbar
+DESTDIR = ../..
+DEPENDPATH += .
+LIBS += -lX11 -L../../../../misc -llmisc -L../../../../windowsystem -llwindowsystem

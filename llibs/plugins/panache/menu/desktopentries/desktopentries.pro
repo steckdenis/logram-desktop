@@ -1,0 +1,9 @@
+CONFIG += plugin
+TEMPLATE = lib
+INCLUDEPATH += ../../include /usr/include/logram ../../../../misc/include
+SOURCES += desktopentries.cpp
+HEADERS += desktopentries.h
+TARGET = desktopentries
+DESTDIR = ../..
+DEPENDPATH += .
+LIBS += -L ../../../../misc -llmisc

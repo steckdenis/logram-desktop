@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Logram's theme configuration
+Name[fr]=Configuration du thème de Logram
+Icon=preferences-desktop-theme
+Categories=X-LOGRAM-SETTINGS;X-LOGRAM-APPEARANCE
+Exec=locomrunner /usr/share/logram/locomscripts/theme.locom

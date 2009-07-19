@@ -1,0 +1,17 @@
+Mises à jours
+
+Version 0.1 > Dimanche 23/11/2008 [14h] : Mise en place de l'interface graphique, et de l'impression écran.
+
+Version 0.2 > Dimanche 23/11/2008 [16h30] : Ajout de la conversion d'image, de la possibilité de cacher la fenêtre, et des boites de dialogues de selection de fichier.
+
+Version 0.2.10 > Dimanche 23/11/2008 [17h15] : Ajout d'une icone dans la barre des tâches.
+
+Version 0.3 > Lundi 24/11/2008 [21h]</u> : Changement totale : on utilise plus la librairie Imagemagick, mais uniquement Qt :D Pour l'instant moins de possibilité, mais pas pour longtemps...
+
+Version 0.4 > Dimanche 30/11/2008 [12h30] : Il est maintenant possible de selectionner la partie de l'écran dont on fait l'impression :D Encore un bug car on ne peut tracer le cadre que dans un sens...
+
+Version 0.5 > Dimanche 30/11/2008 [17h40] : Bug fixed :D Après un bon moment que je me demenne avec ce bug, il est enfin résolu ^^ De plus lorsqu'on choisit la zone à copier, la fenêtre est pleine ecran, et aucune fenêtre ne passe dessus (merci au forum Qtfr : http://forum.qtfr.org/viewtopic.php?pid=48915 )
+
+Version 1.0 > Jeudi 11/12/2008 [14h30] : PixGrab est maintenant compatible Windows :D (merci à keisuke :) )
+
+Version 1.0.1 > Samedi 21/03/2009 [21h50] : Correction d'un probleme lors d'un capture d'écran avec la fenêtre principale fermée.

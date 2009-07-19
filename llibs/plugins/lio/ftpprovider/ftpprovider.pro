@@ -1,0 +1,9 @@
+CONFIG += plugin debug
+TEMPLATE = lib
+INCLUDEPATH += ../include /usr/include/logram
+SOURCES += ftpprovider.cpp
+HEADERS += ftpprovider.h
+TARGET = lioftpprovider
+DESTDIR = ..
+DEPENDPATH += .
+QT += network

@@ -1,0 +1,9 @@
+CONFIG += plugin
+TEMPLATE = lib
+INCLUDEPATH += ../../include /usr/include/logram /usr/include/phonon
+SOURCES += ghetto.cpp
+HEADERS += ghetto.h
+TARGET = ghetto
+DESTDIR = ../..
+DEPENDPATH += .
+QT += phonon

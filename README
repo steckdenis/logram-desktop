@@ -1,0 +1,47 @@
+I. WHAT IS LOGRAM ?
+
+Logram is a GNU/Linux distribution with a new Desktop Environment : Panache.
+Panache is composed of Panache-WM, the Window Manager to manage the windows
+(move, resize, close, ...), and Panache-Desktop.
+
+But what is Panache-Desktop ? It's an innovating Desktop Environment which
+include a Round Menu on several level (generally one for the taskbar and one
+for the desktopentries) and a lot of plugins named "Languette", so you can
+listen music and change your playlist without have a window opened, the
+"Languette" is hidded.
+
+
+II. CONTRIBUTORS
+
+Developpers :
+	- Denis Steckelmacher <steckdenis@yahoo.fr>
+	- 
+
+Debuggers :
+	- David Delassus <linkdd62@gmail.com>
+
+Testers :
+	- David Delassus <linkdd62@gmail.com>
+	- Simon Cleriot <malgon33@gmail.com>
+
+Web Developpers :
+	- Denis Steckelmacher <steckdenis@yahoo.fr>
+	- Aghilès Aït-Larbi <aitlarbi.aghiles@gmail.com>
+
+But Logram, it's a large community too : http://www.logram-project.org/
+
+
+III. WHAT I NEED TO TAKE PART IN LOGRAM ?
+
+You must know the language C++ and the library Qt to program some application
+for Logram.
+
+Or if you are interesting in the Web Developping, you can contact Denis
+Steckelmacher, maybe he can send to you the TODO-List of the new website.
+
+
+IV. CONTACT US
+
+You can contact us via E-Mail, or via the website, or on IRC :
+Server: irc.uni-irc.net
+Channel: #logram-project

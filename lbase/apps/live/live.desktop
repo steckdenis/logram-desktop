@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Live image viewer
+Name[fr]=Visionneuse d'images Live
+Name[en]=Live image viewer
+Comment=Displays and edits images
+Comment[fr]=Afficher et édite des images
+Icon=image
+Exec=live
+Categories=Graphics;2DGraphics;Qt

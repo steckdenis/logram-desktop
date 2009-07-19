@@ -1,0 +1,38 @@
+Welcome on Logram !
+
+
+I. HOW TO GET LOGRAM ?
+
+If you want install Logram, you need :
+	- libqt4-dev >= 4.4 (4.5 recommanded)
+	- libphonon4
+	- libphonon-dev
+
+Checkout the latest version of Logram via the SVN repository :
+	$ svn co svn://logram-project.org/logram/trunk
+And update it with :
+	$ svn update
+
+
+II. HOW TO INSTALL LOGRAM ?
+
+In the trunk folder, just run with the superuser privileges :
+	# make
+	# make install
+
+
+III. HOW TO TEST LOGRAM ?
+
+If you want test on a real X-Server, just laucnh this commands :
+	$ X :1 &		# You can change :1
+	$ export DISPLAY=:1
+	$ panache-wm &
+	$ panache-desktop &
+
+If you want to test in a virtual X-Server, you need Xephyr :
+	$ Xephyr :1 -ac -kb -screen 800x600 &
+	$ export DISPLAY=:1
+	$ panache-wm &
+	$ panache-desktop &
+
+And enjoy with Logram

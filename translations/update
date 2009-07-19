@@ -1,0 +1,15 @@
+#!/bin/bash
+
+languages="en"
+
+for file in `find ../lbase ../llibs -name '*.cpp'`
+do
+	files="$files $file"
+done
+
+for lang in $languages
+do
+	langs="$langs logram_$lang.ts"
+done
+
+lupdate $files -ts $langs

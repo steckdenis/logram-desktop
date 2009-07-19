@@ -1,0 +1,5 @@
+#!/bin/bash
+
+install -d -m755 $1/usr/share/logram/translations
+
+cp releases/*.qm /usr/share/logram/translations

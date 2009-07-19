@@ -1,0 +1,9 @@
+CONFIG += plugin
+TEMPLATE = lib
+INCLUDEPATH += ../../include /usr/include/logram ../../../../misc/include/
+SOURCES += datetime.cpp
+HEADERS += datetime.h
+TARGET = datetime
+DESTDIR = ../..
+DEPENDPATH += .
+LIBS += -L ../../../../misc/ -llmisc
