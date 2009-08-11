@@ -271,3 +271,19 @@ void Client::maxClicked(bool checked)
                 setGeometry(ax, ay, aw, ah);
         }
 }
+
+void Client::mouseDoubleClickEvent(QMouseEvent *event)
+{
+    //Vérfier qu'on clique bien sur la barre de titre
+    if (event->y() <= titlebar_height)
+    {
+        //Changer l'était du bouton de maximisation
+        btnmaximum->setChecked(!btnmaximum->isChecked());
+
+        // Si le bouton était décoché (mode normal), il est maintenant coché (mode maximum).
+        // L'inverse est bien sûr possible. Nous allons donc maintenant appeler la fonction
+        // maxClicked(bool) pour réutiliser un code qui marche, facilement, et faire comme si
+        // l'utilisateur avait cliqué sur le bouton
+        maxClicked(btnmaximum->isChecked());
+    }
+}
