@@ -6,4 +6,5 @@ all:
 clean:
 
 	@(cd ghetto && if test -f Makefile; then $(MAKE) clean; fi)
-	@(cd WikiSearch if test -f Makefile; then $(MAKE) clean; fi)
+	@(cd WikiSearch && if test -f Makefile; then $(MAKE) clean; fi)
+
