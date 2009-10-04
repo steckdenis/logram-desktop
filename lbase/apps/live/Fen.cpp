@@ -119,6 +119,7 @@ void Fen::openFile(const QString& fileName)
         img = QPixmap(fileName);
         image->setPixmap(img);
         image->resize(img.width(), img.height());
+        image->update();
 
         //Adapter le LDirView
         parts.removeAt(parts.count() - 1);
@@ -176,6 +177,7 @@ void Fen::rotateLeft(bool)
         img = img.transformed(trans);
         image->setPixmap(img);
         image->resize(img.width(), img.height());
+        image->update();
 }
 
 void Fen::rotateRight(bool)
@@ -187,6 +189,7 @@ void Fen::rotateRight(bool)
         img = img.transformed(trans);
         image->setPixmap(img);
         image->resize(img.width(), img.height());
+        image->update();
 }
 
 void Fen::scale(bool)
