@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/icones" >
+        <file>images/compile2.png</file>
+        <file>images/new.png</file>
+        <file>images/open.png</file>
+        <file>images/quit.png</file>
+        <file>images/save.png</file>
+    </qresource>
+</RCC>

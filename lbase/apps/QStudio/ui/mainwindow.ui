@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindowClass</class>
+ <widget class="QMainWindow" name="MainWindowClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1270</width>
+    <height>945</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>QStudio</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QSplitter" name="splitter2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1271</width>
+      <height>851</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QTreeView" name="treeView">
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAsNeeded</enum>
+      </property>
+      <property name="indentation">
+       <number>10</number>
+      </property>
+      <property name="expandsOnDoubleClick">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QTabWidget" name="sorties">
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <widget class="QWidget" name="outputTab">
+      <attribute name="title">
+       <string>Sortie</string>
+      </attribute>
+      <widget class="QTextEdit" name="outputEdit">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>1271</width>
+         <height>91</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="errorTab">
+      <attribute name="title">
+       <string>Erreurs</string>
+      </attribute>
+      <widget class="QTextEdit" name="errorEdit">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>1271</width>
+         <height>91</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1270</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFichier">
+    <property name="title">
+     <string>Fichier</string>
+    </property>
+    <addaction name="actionOuvrir"/>
+    <addaction name="actionCreate"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionQuitter"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="title">
+     <string>Edition</string>
+    </property>
+    <addaction name="actionFind"/>
+    <addaction name="actionUndo"/>
+    <addaction name="actionRedo"/>
+    <addaction name="actionAjout"/>
+   </widget>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>?</string>
+    </property>
+    <addaction name="actionQt"/>
+    <addaction name="actionApropos"/>
+    <addaction name="actionLicence"/>
+   </widget>
+   <widget class="QMenu" name="menuProjet">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="title">
+     <string>Projet</string>
+    </property>
+    <addaction name="actionCompil"/>
+    <addaction name="actionClean"/>
+   </widget>
+   <widget class="QMenu" name="menuPlugin">
+    <property name="title">
+     <string>Outils</string>
+    </property>
+   </widget>
+   <addaction name="menuFichier"/>
+   <addaction name="menuProjet"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuPlugin"/>
+   <addaction name="menu"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionCreate"/>
+   <addaction name="actionOuvrir"/>
+   <addaction name="actionSave"/>
+   <addaction name="actionCompil"/>
+  </widget>
+  <widget class="QStatusBar" name="status"/>
+  <action name="actionQuitter">
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/icones/images/quit.png</normaloff>:/icones/images/quit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Quitter</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/icones/images/save.png</normaloff>:/icones/images/save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Sauvegarder</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionOuvrir">
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/icones/images/open.png</normaloff>:/icones/images/open.png</iconset>
+   </property>
+   <property name="text">
+    <string>Ouvrir</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionCompil">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/icones/images/compile2.png</normaloff>:/icones/images/compile2.png</iconset>
+   </property>
+   <property name="text">
+    <string>Compiler</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="actionClean">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Nettoyer</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
+  </action>
+  <action name="actionCreate">
+   <property name="icon">
+    <iconset resource="../ressources.qrc">
+     <normaloff>:/icones/images/new.png</normaloff>:/icones/images/new.png</iconset>
+   </property>
+   <property name="text">
+    <string>Créér un projet</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionQt">
+   <property name="text">
+    <string>Qt</string>
+   </property>
+  </action>
+  <action name="actionApropos">
+   <property name="text">
+    <string>A propos</string>
+   </property>
+  </action>
+  <action name="actionLicence">
+   <property name="text">
+    <string>Licence</string>
+   </property>
+  </action>
+  <action name="actionFind">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Chercher/Remplacer</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="text">
+    <string>Annuler</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="text">
+    <string>Refaire</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Y</string>
+   </property>
+  </action>
+  <action name="actionAnglais">
+   <property name="text">
+    <string>Anglais</string>
+   </property>
+  </action>
+  <action name="actionAjout">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Ajout de texte (Licence etc)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="actionReloadPlugins">
+   <property name="text">
+    <string>Recharger la liste des plugins</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="../ressources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

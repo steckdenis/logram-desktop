@@ -1,0 +1,13 @@
+Mises à jours
+
+Version 0.1 > Vendredi 12/12/2008 [19h] : 1ere version de QStudio, ouverture des fichiers .pro, sauvegarde des fichiers un par un, création d'un projet avec une QMainWindow, Compilation et nettoyage + affichage des retours de la commande.
+
+Version 0.1.10 > Vendredi 12/12/2008 [21h] : Ajout de la vérification des formulaires, des chemins (qu'ils se finissent bien par / ^^ ), le QTreeView est étendu en entier à l'ouverture d'un projet + Ajout d'une icone de XSE :D et d'un fichier de ressource.
+
+Version 0.2 > Vendredi 13/12/2008 [20h20] : Séparation du code de compilation et de la fenêtre, Ajout de la fonction rechercher, gestion de la sauvegarde des projets, amélioration de l'interface pour permettre le redimensionnement, sécurisation des ouvertures de fichier, ajout d'icones de XSE, ajout de quelques commentaires :-° et quelques autres choses que j'oubli ^^
+
+Version 0.3 > Dimanche 14/12/2008 [21h00] : Gestion des fichier ui de Qt (ouverture dans Qt4-designer), fonctionnalité d'ajout de texte au dessus des codes sources + utilisation de patrons (licence) enregistrée dans le fichier xml config/licences.xml ;) , Ajout d'une autre icone de XSE ^^ , Correction d'un bug qui faisait qu'on ne pouvait pas ouvrir deux projets à la suite, Suppression des 2 warnings de compilation :-°
+
+Version 0.3.10 > Mercredi 17/12/2008 [18h30] : Ajout de la fonction remplacer.
+
+Version 0.4 > Jeudi 18/12/2008 [15h20] : Gestion des plugins et de l'auto-complétion avec QScintilla (appuyer sur CTRL + ESPACE pour l'afficher ;) )
