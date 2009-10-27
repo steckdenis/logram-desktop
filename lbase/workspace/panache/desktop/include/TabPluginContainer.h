@@ -50,7 +50,7 @@ class TabPluginContainer : public QWidget
 {
         Q_OBJECT
 
-public:
+	public:
         TabPluginContainer(QString title, QString icon, QString id, IPanacheDesktopPlugin *plugin, App *mapp);
         ~TabPluginContainer();
 
@@ -71,7 +71,7 @@ public:
         QString tabName, micon, mtitle;
         SubTab  *subtab;                //Tab itself
 
-public slots:
+	public slots:
         void timeout();
         void iconClicked(bool toggled);
         void tabMousePressed(bool pressed);
@@ -79,11 +79,11 @@ public slots:
         void buttonEntered();
         void pullHided();
 
-signals:
+	signals:
         void closed();
         void toDesktop();
 
-protected:
+	protected:
         virtual void mousePressEvent(QMouseEvent *event);
         virtual void mouseReleaseEvent(QMouseEvent *event);
         virtual void mouseMoveEvent(QMouseEvent *event);
@@ -92,7 +92,7 @@ protected:
         virtual void leaveEvent(QEvent *event);
         virtual void paintEvent(QPaintEvent *event);
 
-private:
+	private:
         QSettings *tabInfos;                    //Information about tab saved
         IPanacheDesktopPlugin *nplugin;         //Plugin
         App *app;

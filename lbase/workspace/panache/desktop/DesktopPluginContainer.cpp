@@ -3,6 +3,7 @@
  * This file is part of Logram
  *
  * Copyright (C) 2008 - Denis Steckelmacher <steckdenis@yahoo.fr>
+		 2009 - Leo Testard <leo.testard@gmail.com>
  *
  * Logram is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -47,9 +48,9 @@ DesktopPluginContainer::DesktopPluginContainer(QString title, QString icon, QStr
         cornersize      = LConfig::logramValue("DesktopPlugin/CornerSize", 20, "Theme").toInt();
         fontsize        = LConfig::logramValue("DesktopPlugin/FontSize", 12, "Theme").toInt();
         mpix            = QPixmap(theme + LConfig::logramValue("DesktopPlugin/Pixmap", "desktopplugin_pixmap.png", "Theme").toString());
-        bgColor         = QColor(LConfig::logramValue("DesktopPlugin/BackgroundColor", "#FFFFFF", "Theme").toString());
-        bgColor.setAlpha(LConfig::logramValue("DesktopPlugin/BackgroundAlpha", 64, "Theme").toInt());
-        textColor = QColor(LConfig::logramValue("DesktopPlugin/TextColor", "#000000", "Theme").toString());
+        bgColor         = QColor(LConfig::logramValue("DesktopPlugin/BackgroundColor", "#000011", "Theme").toString());
+        bgColor.setAlpha(LConfig::logramValue("DesktopPlugin/BackgroundAlpha", 128, "Theme").toInt());
+        textColor = QColor(LConfig::logramValue("DesktopPlugin/TextColor", "#FFFFFF", "Theme").toString());
 
         tabInfos->setValue(tabName + "/IsTab", false);
         tabInfos->sync();

@@ -77,7 +77,6 @@ MenuManager::MenuManager(App *mapp) : QWidget(0)
         fontcolor   = QColor(LConfig::logramValue("RoundMenu/FontColor", "#FFFFFF", "Theme").toString());
         brush       = QBrush(QPixmap(theme + LConfig::logramValue("RoundMenu/BackgroundTexture", "round_bgtexture.png", "Theme").toString()));
         brushactive = QBrush(QPixmap(theme + LConfig::logramValue("RoundMenu/ActiveBackgroundTexture", "round_bgtexture_a.png", "Theme").toString()));
-
         //Load plugins
         QSettings   pluginList(QDir::homePath() + "/.panache/plugins.list", QSettings::IniFormat);
         QStringList splugins = pluginList.childGroups();

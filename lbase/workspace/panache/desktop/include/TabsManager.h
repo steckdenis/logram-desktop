@@ -35,19 +35,19 @@ class TabsManager : public QObject
 {
         Q_OBJECT
 
-public:
+	public:
         TabsManager(App *mapp);
 
         void addPlugin(IPanacheDesktopPlugin *plugin, QString title, QString icon, QString id);
 
-signals:
+	signals:
         void toDesktop(TabPluginContainer *sender);
 
-public slots:
+	public slots:
         void mtoDesktop();
         void mclosed();
 
-private:
+	private:
         App *app;
         QList<TabPluginContainer *> plugins;
 };

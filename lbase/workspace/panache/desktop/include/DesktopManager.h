@@ -25,9 +25,11 @@
 
 #include <QObject>
 #include <QWidget>
-
+#include <LDirView.h>
 #include <IPanacheDesktopDecoratorPlugin.h>
 #include <DesktopPluginContainer.h>
+#include <ToolBar.h>
+
 
 class App;
 
@@ -38,7 +40,7 @@ class DesktopManager : public QObject
 public:
         DesktopManager(App *mapp);
         void addPlugin(IPanacheDesktopPlugin *plugin, QString title, QString icon, QString id);
-        
+        //void updateUndoButtons();
         bool exists;
 
 signals:
@@ -48,13 +50,22 @@ public slots:
         void mtoTab();
         void mclosed();
         void openDir(QString path, bool *cancel);
-
+	void openParentDir(QString path, bool *cancel);
+	void go(QString);
+	void changeAdress(QString path);
+	void home();
+	void reload();
+	void back();
+	void next();
+	void cdup();
+	
 private:
         App *app;
         IPanacheDesktopDecoratorPlugin *plugin;
         QWidget *desktopWidget;
-
+	LDirView *view;
         QList<DesktopPluginContainer *> plugins;
+	ToolBar *toolBar;
 };
 
 #endif

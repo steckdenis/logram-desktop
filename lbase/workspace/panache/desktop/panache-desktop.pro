@@ -18,9 +18,11 @@ HEADERS +=	include/App.h \
 		include/SubTab.h \
 		include/MenuManager.h \
 		include/StartMenu.h \
-		include/TaskBar.h
+		include/TaskBar.h \
+		include/ToolBar.h 
 
 SOURCES += 	App.cpp \
+		ToolBar.cpp \
 		main.cpp \
 		DesktopManager.cpp \
 		DesktopPluginContainer.cpp \

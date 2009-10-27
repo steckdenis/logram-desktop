@@ -59,7 +59,7 @@ TabPluginContainer::TabPluginContainer(QString title, QString icon, QString id, 
         HD          = QPixmap(theme + LConfig::logramValue("Tab/TopRightCornerImage", "desktop-toprightcorner.png", "Theme").toString());
         BG          = QPixmap(theme + LConfig::logramValue("Tab/BottomLeftCornerImage", "desktop-bottomleftcorner.png", "Theme").toString());
         BD          = QPixmap(theme + LConfig::logramValue("Tab/BottomRightCornerImage", "desktop-bottomrightcorner.png", "Theme").toString());
-        bgColor     = QColor(LConfig::logramValue("Tab/BackgroundColor", "#77a1ff", "Theme").toString());
+        bgColor     = QColor(LConfig::logramValue("Tab/BackgroundColor", "#616161", "Theme").toString());
         borderColor = QColor(LConfig::logramValue("Tab/BorderColor", "#000000", "Theme").toString());
 
         //Create new tab itself
