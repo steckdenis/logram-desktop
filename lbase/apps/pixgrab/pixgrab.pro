@@ -10,3 +10,7 @@ HEADERS += src/mainwindow.h \
     src/fullscreen.h
 FORMS += ui/mainwindow.ui
 RESOURCES += ressource.qrc
+
+target.path=/usr/bin
+
+INSTALLS += target
