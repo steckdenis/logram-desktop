@@ -17,13 +17,15 @@ HEADERS +=	include/LImageButton.h \
 		include/LDirView.h \
 		include/LDirBar.h \
 		include/LDirTree.h \
-		include/LDirActions.h
+		include/LDirActions.h \
+		include/LRibbon.h
 
 SOURCES +=	Misc/LImageButton.cpp \
 		FileManagment/LDirView.cpp \
 		FileManagment/LDirBar.cpp \
 		FileManagment/LDirTree.cpp \
-		FileManagment/LDirActions.cpp
+		FileManagment/LDirActions.cpp \
+		Misc/LRibbon.cpp
 
 target.path=/usr/lib
 
