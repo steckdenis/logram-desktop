@@ -115,6 +115,10 @@ mwindow::mwindow()
  	//setMenuBar(menuBar); 
 	
 	updateBookmarks(bookmarks);
+	
+	QDockWidget *dock = new QDockWidget;
+	dock->setWidget(bookmarks);
+	addDockWidget(Qt::LeftDockWidgetArea, dock);
 
 	// construction du menu ruban
 	ribbon = new LRibbon(this);

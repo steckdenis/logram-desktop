@@ -30,6 +30,7 @@
 #include <LRibbon.h>
 #include <QGroupBox>
 #include <QBoxLayout>
+#include <QDockWidget>
 
 class mwindow : public QMainWindow
 {
