@@ -44,7 +44,7 @@ Client::Client(App *mapp) : QWidget()
         bar         = QPixmap(20, 20);
         titlebarborder = QPixmap(20, 1);
         topleftborder = QPixmap(1, titlebar_height);
-        topleftborder = QPixmap(1, titlebar_height);
+        toprightborder = QPixmap(1, titlebar_height);
 	topleft.fill(QColor(216, 216, 216));
 	topright.fill(QColor(216, 216, 216));
 	mtitle.fill(QColor(216, 216, 216));

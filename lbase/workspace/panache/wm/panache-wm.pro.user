@@ -33,7 +33,8 @@
   <valuemap type="QVariantMap" >
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Release</value>
    <value key="QtVersionId" type="int" >2</value>
-   <value key="buildDirectory" type="QString" >/home/denis/logram/new/lbase/workspace/panache/wm</value>
+   <value key="addQDumper" type="" ></value>
+   <value key="buildDirectory" type="QString" >/home/leo/Documents/logram-de/lbase/workspace/panache/wm</value>
   </valuemap>
  </data>
  <data>

@@ -78,6 +78,7 @@ void Client::paintEvent(QPaintEvent *event)
         painter.drawPixmap(cornersize, 0, fwidth, titlebar_height, mtitle);
         painter.drawPixmap(cornersize + fwidth, 0, titlebar);
         painter.drawPixmap(cornersize + fwidth + tbwidth, 0, width() - (2 * cornersize) - fwidth - tbwidth, titlebar_height, bar);
+        painter.drawPixmap(0, 0, width(), 1, titlebarborder);
 
         //Dessiner le titre
         painter.setPen(QColor(textcolor));
