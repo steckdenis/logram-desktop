@@ -42,11 +42,17 @@ Client::Client(App *mapp) : QWidget()
         mtitle      = QPixmap(40, 20);
         titlebar    = QPixmap();
         bar         = QPixmap(20, 20);
+        titlebarborder = QPixmap(20, 1);
+        topleftborder = QPixmap(1, titlebar_height);
+        topleftborder = QPixmap(1, titlebar_height);
 	topleft.fill(QColor(216, 216, 216));
 	topright.fill(QColor(216, 216, 216));
 	mtitle.fill(QColor(216, 216, 216));
 	titlebar.fill(QColor(216, 216, 216));
         bar.fill(QColor(216, 216, 216));
+        topleftborder.fill(QColor(0, 0, 0));
+        toprightborder.fill(QColor(0, 0, 0));
+        titlebarborder.fill(QColor(0, 0, 0));
 
         cornersize = LConfig::logramValue("Windows/CornerSize", 20, "Theme").toInt();
         fontname   = LConfig::logramValue("Windows/TitlebarFontName", "DejaVu Sans", "Theme").toString();

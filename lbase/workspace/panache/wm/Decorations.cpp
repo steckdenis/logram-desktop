@@ -58,7 +58,9 @@ void Client::paintEvent(QPaintEvent *event)
         painter.drawPixmap(0, height() - bottomleft.height(), bottomleft);
         painter.drawPixmap(width() - bottomright.width(), height() - bottomright.height(), bottomright);
         painter.drawPixmap(0, 0, topleft);
+        painter.drawPixmap(0, 0, topleftborder); // bord noir de la barre de titre
         painter.drawPixmap(width() - topright.width(), 0, topright);
+        painter.drawPixmap(width() - 1, 0, toprightborder); // deuxième bord noir
 
         //Barre de titre
         QFont        mfont(fontname, fontsize);
