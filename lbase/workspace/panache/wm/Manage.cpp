@@ -32,16 +32,21 @@ Client::Client(App *mapp) : QWidget()
 
         theme = LConfig::logramValue("ImagePath", "/usr/share/logram/themes/default/", "Theme").toString();
 
-        topleft     = QPixmap(theme + LConfig::logramValue("Windows/TopLeftCornerImage", "topleftcorner.png", "Theme").toString());
-        topright    = QPixmap(theme + LConfig::logramValue("Windows/TopRightCornerImage", "toprightcorner.png", "Theme").toString());
+        topleft     = QPixmap(20, 20);
+        topright    = QPixmap(20, 20);
         bottomleft  = QPixmap(theme + LConfig::logramValue("Windows/BottomLeftCornerImage", "bottomleftcorner.png", "Theme").toString());
         bottomright = QPixmap(theme + LConfig::logramValue("Windows/BottomRightCornerImage", "bottomrightcorner.png", "Theme").toString());
         mleft       = QPixmap(theme + LConfig::logramValue("Windows/LeftSideImage", "leftside.png", "Theme").toString());
         mright      = QPixmap(theme + LConfig::logramValue("Windows/RightSideImage", "rightside.png", "Theme").toString());
         mbottom     = QPixmap(theme + LConfig::logramValue("Windows/BottomSideImage", "bottomside.png", "Theme").toString());
-        mtitle      = QPixmap(theme + LConfig::logramValue("Windows/UnderTitleImage", "undertitle.png", "Theme").toString());
-        titlebar    = QPixmap(theme + LConfig::logramValue("Windows/TitleToTitlebarImage", "titletotitlebar.png", "Theme").toString());
-        bar         = QPixmap(theme + LConfig::logramValue("Windows/TitleBarImage", "titlebar.png", "Theme").toString());
+        mtitle      = QPixmap(40, 20);
+        titlebar    = QPixmap();
+        bar         = QPixmap(20, 20);
+	topleft.fill(QColor(216, 216, 216));
+	topright.fill(QColor(216, 216, 216));
+	mtitle.fill(QColor(216, 216, 216));
+	titlebar.fill(QColor(216, 216, 216));
+        bar.fill(QColor(216, 216, 216));
 
         cornersize = LConfig::logramValue("Windows/CornerSize", 20, "Theme").toInt();
         fontname   = LConfig::logramValue("Windows/TitlebarFontName", "DejaVu Sans", "Theme").toString();
