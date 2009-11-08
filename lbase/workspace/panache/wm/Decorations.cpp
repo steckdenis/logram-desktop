@@ -73,7 +73,7 @@ void Client::paintEvent(QPaintEvent *event)
                 fwidth = width() - (48 + (5 * border_width) + 10 + 16 + tbwidth);
         }
 
-        painter.drawPixmap(1, 1, width() - 2, titlebar_height, bar);
+        painter.drawPixmap(1, 1, width() - 2, titlebar_height - 1, bar);
         painter.drawPixmap(0, 0, width(), 1, titlebarborder);
 
         //Dessiner le titre
