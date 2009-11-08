@@ -45,11 +45,16 @@ Client::Client(App *mapp) : QWidget()
         titlebarborder = QPixmap(20, 1);
         topleftborder = QPixmap(1, titlebar_height);
         toprightborder = QPixmap(1, titlebar_height);
-	topleft.fill(QColor(216, 216, 216));
-	topright.fill(QColor(216, 216, 216));
-	mtitle.fill(QColor(216, 216, 216));
-	titlebar.fill(QColor(216, 216, 216));
-        bar.fill(QColor(216, 216, 216));
+
+        QSettings set("Logram", "Theme");
+        int red = set.value("Panache/TitleBarRed", 216).toInt();
+        int green = set.value("Panache/TitleBarGreen", 216).toInt();
+        int blue = set.value("Panache/TitleBarBlue", 216).toInt();
+        topleft.fill(QColor(red, green, blue));
+        topright.fill(QColor(red, green, blue));
+        mtitle.fill(QColor(red, green, blue));
+        titlebar.fill(QColor(red, green, blue));
+        bar.fill(QColor(red, green, blue));
         topleftborder.fill(QColor(0, 0, 0));
         toprightborder.fill(QColor(0, 0, 0));
         titlebarborder.fill(QColor(0, 0, 0));
@@ -57,7 +62,7 @@ Client::Client(App *mapp) : QWidget()
         cornersize = LConfig::logramValue("Windows/CornerSize", 20, "Theme").toInt();
         fontname   = LConfig::logramValue("Windows/TitlebarFontName", "DejaVu Sans", "Theme").toString();
         fontsize   = LConfig::logramValue("Windows/TitlebarFontSize", 13, "Theme").toInt();
-        textcolor  = LConfig::logramValue("Windows/TitleColor", "#000000", "Theme").toString();
+        textcolor  = LConfig::logramValue("Panache/WindowTitleColor", "#000000", "Theme").toString();
 }
 
 bool Client::init(Window win)
