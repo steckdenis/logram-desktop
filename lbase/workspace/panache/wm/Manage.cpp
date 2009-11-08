@@ -32,15 +32,11 @@ Client::Client(App *mapp) : QWidget()
 
         theme = LConfig::logramValue("ImagePath", "/usr/share/logram/themes/default/", "Theme").toString();
 
-        topleft     = QPixmap(20, 20);
-        topright    = QPixmap(20, 20);
         bottomleft  = QPixmap(theme + LConfig::logramValue("Windows/BottomLeftCornerImage", "bottomleftcorner.png", "Theme").toString());
         bottomright = QPixmap(theme + LConfig::logramValue("Windows/BottomRightCornerImage", "bottomrightcorner.png", "Theme").toString());
         mleft       = QPixmap(theme + LConfig::logramValue("Windows/LeftSideImage", "leftside.png", "Theme").toString());
         mright      = QPixmap(theme + LConfig::logramValue("Windows/RightSideImage", "rightside.png", "Theme").toString());
         mbottom     = QPixmap(theme + LConfig::logramValue("Windows/BottomSideImage", "bottomside.png", "Theme").toString());
-        mtitle      = QPixmap(40, 20);
-        titlebar    = QPixmap();
         bar         = QPixmap(20, 20);
         titlebarborder = QPixmap(20, 1);
         topleftborder = QPixmap(1, titlebar_height);
@@ -50,11 +46,21 @@ Client::Client(App *mapp) : QWidget()
         int red = set.value("Panache/TitleBarRed", 216).toInt();
         int green = set.value("Panache/TitleBarGreen", 216).toInt();
         int blue = set.value("Panache/TitleBarBlue", 216).toInt();
-        topleft.fill(QColor(red, green, blue));
-        topright.fill(QColor(red, green, blue));
-        mtitle.fill(QColor(red, green, blue));
-        titlebar.fill(QColor(red, green, blue));
-        bar.fill(QColor(red, green, blue));
+
+        if(set.value("Panache/TitleBarIsGradient").toString()== "true")
+        {
+            bar.fill(Qt::transparent);
+            int finalRed = set.value("Panache/GradientEndRed").toInt();
+            int finalGreen = set.value("Panache/GradientEndGreen").toInt();
+            int finalBlue = set.value("Panache/GradientEndBlue").toInt();
+            QLinearGradient gradient(QPointF(0, 0), QPointF(20, 0));
+            gradient.setColorAt(0, Qt::black);
+            gradient.setColorAt(1, Qt::white);
+            QPainter gradientPainter(&bar);
+            gradientPainter.fillRect(0, 0, 20, 20, gradient);
+        }
+        else { bar.fill(QColor(red, green, blue)); }
+
         topleftborder.fill(QColor(0, 0, 0));
         toprightborder.fill(QColor(0, 0, 0));
         titlebarborder.fill(QColor(0, 0, 0));

@@ -57,9 +57,7 @@ void Client::paintEvent(QPaintEvent *event)
         //Image des angles
         painter.drawPixmap(0, height() - bottomleft.height(), bottomleft);
         painter.drawPixmap(width() - bottomright.width(), height() - bottomright.height(), bottomright);
-        painter.drawPixmap(0, 0, topleft);
         painter.drawPixmap(0, 0, topleftborder); // bord noir de la barre de titre
-        painter.drawPixmap(width() - topright.width(), 0, topright);
         painter.drawPixmap(width() - 1, 0, toprightborder); // deuxième bord noir
 
         //Barre de titre
@@ -75,9 +73,7 @@ void Client::paintEvent(QPaintEvent *event)
                 fwidth = width() - (48 + (5 * border_width) + 10 + 16 + tbwidth);
         }
 
-        painter.drawPixmap(cornersize, 0, fwidth, titlebar_height, mtitle);
-        painter.drawPixmap(cornersize + fwidth, 0, titlebar);
-        painter.drawPixmap(cornersize + fwidth + tbwidth, 0, width() - (2 * cornersize) - fwidth - tbwidth, titlebar_height, bar);
+        painter.drawPixmap(1, 1, width() - 2, titlebar_height, bar);
         painter.drawPixmap(0, 0, width(), 1, titlebarborder);
 
         //Dessiner le titre
