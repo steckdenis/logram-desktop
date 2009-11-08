@@ -53,7 +53,7 @@ Client::Client(App *mapp) : QWidget()
             int finalRed = set.value("Panache/GradientEndRed").toInt();
             int finalGreen = set.value("Panache/GradientEndGreen").toInt();
             int finalBlue = set.value("Panache/GradientEndBlue").toInt();
-            QLinearGradient gradient(QPointF(0, 0), QPointF(20, 0));
+            QLinearGradient gradient(QPointF(0, 0), QPointF(100, 0));
             gradient.setColorAt(0, Qt::black);
             gradient.setColorAt(1, Qt::white);
             QPainter gradientPainter(&bar);
