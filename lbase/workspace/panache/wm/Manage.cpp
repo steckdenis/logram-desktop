@@ -53,9 +53,14 @@ Client::Client(App *mapp) : QWidget()
             int finalRed = set.value("Panache/GradientEndRed").toInt();
             int finalGreen = set.value("Panache/GradientEndGreen").toInt();
             int finalBlue = set.value("Panache/GradientEndBlue").toInt();
+            
             QLinearGradient gradient(QPointF(0, 0), QPointF(800, 0));
-            gradient.setColorAt(0, Qt::black);
-            gradient.setColorAt(1, Qt::white);
+
+            if(set.value("Panache/GradientOrientation").toString() == "Horizontal") { // si le dégradé est horizontal, on le redéfinit
+                gradient.setFinalStop(QPointF(0, titlebar_height)); }
+
+            gradient.setColorAt(0, QColor(red, green, blue));
+            gradient.setColorAt(1, QColor(finalRed, finalGreen, finalBlue));
             QPainter gradientPainter(&bar);
             gradientPainter.fillRect(0, 0, 800, 20, gradient);
         }
