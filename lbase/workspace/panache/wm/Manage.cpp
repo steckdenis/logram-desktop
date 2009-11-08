@@ -37,7 +37,7 @@ Client::Client(App *mapp) : QWidget()
         mleft       = QPixmap(theme + LConfig::logramValue("Windows/LeftSideImage", "leftside.png", "Theme").toString());
         mright      = QPixmap(theme + LConfig::logramValue("Windows/RightSideImage", "rightside.png", "Theme").toString());
         mbottom     = QPixmap(theme + LConfig::logramValue("Windows/BottomSideImage", "bottomside.png", "Theme").toString());
-        bar         = QPixmap(20, 20);
+        bar         = QPixmap(800, 20);
         titlebarborder = QPixmap(20, 1);
         topleftborder = QPixmap(1, titlebar_height);
         toprightborder = QPixmap(1, titlebar_height);
@@ -53,11 +53,11 @@ Client::Client(App *mapp) : QWidget()
             int finalRed = set.value("Panache/GradientEndRed").toInt();
             int finalGreen = set.value("Panache/GradientEndGreen").toInt();
             int finalBlue = set.value("Panache/GradientEndBlue").toInt();
-            QLinearGradient gradient(QPointF(0, 0), QPointF(100, 0));
+            QLinearGradient gradient(QPointF(0, 0), QPointF(800, 0));
             gradient.setColorAt(0, Qt::black);
             gradient.setColorAt(1, Qt::white);
             QPainter gradientPainter(&bar);
-            gradientPainter.fillRect(0, 0, 20, 20, gradient);
+            gradientPainter.fillRect(0, 0, 800, 20, gradient);
         }
         else { bar.fill(QColor(red, green, blue)); }
 
