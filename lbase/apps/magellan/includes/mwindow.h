@@ -1,4 +1,5 @@
 #include <QtWebKit>
+#include <QtNetwork>
 #include <QMainWindow>
 #include <QMenuBar>
 #include <QMenu>
@@ -26,155 +27,100 @@
 #include <QSpinBox>
 #include <QFontDialog>
 #include "QTopSite.h"
-#include <LIconLoader.h>
-#include <LRibbon.h>
 #include <QGroupBox>
 #include <QBoxLayout>
-#include <QDockWidget>
+#include <QPixmap>
+#include <QTransform>
 
 class mwindow : public QMainWindow
 {
-	Q_OBJECT
+        Q_OBJECT
 
 public:
-	mwindow(); // constructeur
-	QWidget *makeTab(QString url);
-	QWebView *currentPage();
-	QString homeOpenBox();
-	void loadUrl(QString url);
-	void updateBookmarks(QMenu *menu);
-	void addToHistory(QString title, QString url);
+        mwindow(); // constructeur
+        QWidget *makeTab(QString url);
+        QWebView *currentPage();
+        QIcon favicon(QString url);
 
 public slots:
-	void startLoading();
-	void runLoading(int loading);
-	void endLoading(bool ok);
-	void changeUrl(const QUrl & url);
-	void changeTitle(const QString & title);
-	void load();
-	void switchTab(int index);
-	void addTab();
-	void tabClose();
-	void openWin();
-	void openFile();
-	void pageOpen();
-	void printPage();
-	void exit();
-	void backPage();
-	void forwardPage();
-	void reloadPage();
-	void stopLoading();
-	void goHome();
-	void homeChange();
-	void aboutIt();
-	void closeThisTab(int index);
-	void openSettings();
-	void googleSearch();
-	void startGoogleSearch();
-	void searchInText();
-	void changeIcon();
-	void aboutLogram();
-	void readSavedTabs();
+
+        // tabs and window management slots
+        void changeUrl(const QUrl & url);
+        void changeTitle(const QString & title);
+        void switchTab(int index);
+
+        void newWin();
+
+        void addTab();
+        void closeTab();
+
+        // file slots
+        void open();
+        void openUrl();
+
+        // web internal slots
+        void load();
+        void loadingStarted();
+        void loadingProgress(int loading);
+        void loadingFinished(bool ok);
+
+        // navigation slots
+        void back();
+        void forward();
+        void refresh();
+        void stop();
+        void home();
+
+        // edition slots
+        void print();
+        void find();
+        void cut();
+        void copy();
+        void paste();
+
+        void contextMenu(QPoint);
+
+        // options slots
+        void readSavedTabs();
+
+        // help and about slots
+        void about();
+        void aboutLogram();
+
+        // bookmarks management slots
+        void updateBookmarks(QMenu *menu);
 	void addBookmark(bool);
 	void bookmarkClicked(bool);
 
 	// slots de la fenêtre d'options
+        void openSettings();
 	void defineStart(int index);
 	void defineHome(QString home);
-	void defineHomeCurrentPage();
+        void defineHomeCurrentPage();
 	void defineHomeDefaultPage();
 	void defineHomeBlankPage();
 	void fontDialog();
+        void defineFont(QFont);
+
+        // download management slots
+        void download(QNetworkReply*);
+        void replyFinished(QNetworkReply*);
 
 private:
-	// actions et sous menus
-	QAction *newTab;
-	QAction *closeTab;
-	QAction *newWin;
-	QAction *open;
-	QAction *openPage;
-	QAction *save;
-	QAction *print;
-	QAction *quit;
-	QAction *search;
-	QAction *back;
-	QAction *forward;
-	QAction *reload;
-	QAction *stop;
-	QAction *home;
-	QAction *go;
-	QAction *changeHome;
-	QMenu *toolBarsProperties;
-	QAction *showMainToolBar;
-	QAction *showBookmarksToolBar;
-	QAction *lockBookmarksToolBar;
-	QAction *openSettingsWindow;
-	QAction *addToTopSites;
-	QAction *googleTool;
-	QAction *about;
-	QAction *qabout;
-	QAction *labout;
-	QAction *lockMainToolBar;
-
-	// barre de menus et menus
-	QMenuBar *menuBar;
-	QMenu *file;
-	QMenu *edit;
-	QMenu *navig;
-	QMenu *config;
-	QMenu *tools;
-	QMenu *bookmarks;
-	QMenu *help;
+        QString iconPath;
 	
-	// ruban, group boxes et push buttons
-	LRibbon *ribbon;
-		QHBoxLayout *navigLayout;
-			QGroupBox *navigBox;
-				QLineEdit *adressBar;
-				QPushButton *goButton;
-				QPushButton *backButton;
-				QPushButton *forwardButton;
-				QPushButton *reloadButton;
-				QPushButton *stopButton;
-				QPushButton *homeButton;
-				QPushButton *newTabButton;
-				QPushButton *closeTabButton;
-				QPushButton *newWindowButton;
-			QGroupBox *searchBox;
-				QLineEdit *googleBar;
-				QPushButton *googleButton;
-				QPushButton *searchButton;
-			QGroupBox *historyBox;
-				QPushButton *historyButton;
-		QHBoxLayout *bookmarksLayout;
-			QGroupBox *addBox;
-				QPushButton *addButton;
-			QGroupBox *bookmarksBox;
-				QPushButton *bookmarksButton;
-		QHBoxLayout *fileLayout;
-			QGroupBox *tabsBox;
-			QGroupBox *filesBox;
-				QPushButton *openButton;
-				QPushButton *openUrlButton;
-				QPushButton *saveButton;
-			QGroupBox *specialBox;
-				QPushButton *printButton;
-				QPushButton *quitButton;
-		QHBoxLayout *editLayout;
-			QGroupBox *textBox;
-			QGroupBox *undoredoBox;
-			QGroupBox *settingsBox;
-
-	// barre d'état
+        // barre d'état
 	QStatusBar *statusBar; 
 	QProgressBar *progressBar;
 
+        //bare d'outils
+        QAction *reload;
+        QLineEdit *adressBar;        
+        QMenu *bookmarks;
+
 	// onglets
 	QTabWidget *tabs;
-	QPushButton *newTabCornerButton;
-	
-	// layout principal
-	QVBoxLayout *layout;
+        QPushButton *newTabCornerButton;
 	
 	// fenetre d'options 
 	QMainWindow *settingsWindow;
@@ -186,8 +132,7 @@ private:
                 QString title;
                 QString url;
         };
-	QHash<QAction *, Signet *> signets;
-	QIcon       iconDir;
+        QHash<QAction *, Signet *> signets;
 
 	// gestion des préférences (fichier de configuration et paramètres web)
 	QSettings *settings;
