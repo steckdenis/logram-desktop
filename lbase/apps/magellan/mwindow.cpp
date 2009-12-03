@@ -15,6 +15,7 @@ mwindow::mwindow()
     setWindowIcon(QIcon("/usr/share/magellan/icons/main.png"));
 
     adressBar = new QLineEdit();
+    completer = new GoogleCompleter(adressBar);
     connect(adressBar, SIGNAL(returnPressed()), this, SLOT(load()));
 
     // construction de la barre d'outils

@@ -32,6 +32,8 @@
 #include <QPixmap>
 #include <QTransform>
 
+#include "googlecompleter.h"
+
 class mwindow : public QMainWindow
 {
         Q_OBJECT
@@ -115,7 +117,8 @@ private:
 
         //bare d'outils
         QAction *reload;
-        QLineEdit *adressBar;        
+        QLineEdit *adressBar;
+        GoogleCompleter *completer;
         QMenu *bookmarks;
 
 	// onglets

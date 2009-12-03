@@ -11,15 +11,18 @@ LIBS += -llmisc \
     -llio
 
 # Input
-HEADERS += includes/mwindow.h
+HEADERS += includes/mwindow.h \
+    googlecompleter.h
 SOURCES += main.cpp \
     mwindow.cpp \
     preferences.cpp \
     history.cpp \
     navigation.cpp \
     edition.cpp \
-    downloads.cpp
-QT += webkit network
+    downloads.cpp \
+    googlecompleter.cpp
+QT += webkit \
+    network
 target.path = /usr/bin/
 config.files = Magellan.conf
 config.path = ~/.config/Logram/
