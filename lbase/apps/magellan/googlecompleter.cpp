@@ -16,6 +16,7 @@
      popup->setSelectionBehavior(QTreeWidget::SelectRows);
      popup->setFrameStyle(QFrame::Box | QFrame::Plain);
      popup->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+     popup->resize(parent->width(), popup->height());
 
      popup->header()->hide();
      popup->installEventFilter(this);
@@ -117,7 +118,7 @@
      popup->setUpdatesEnabled(true);
 
      int h = popup->sizeHintForRow(0) * qMin(7, choices.count()) + 3;
-     popup->resize(popup->width(), h);
+     popup->resize(edit->width(), h);
 
      popup->move(edit->mapToGlobal(QPoint(0, edit->height())));
      popup->setFocus();
