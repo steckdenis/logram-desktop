@@ -25,7 +25,7 @@ QT += webkit \
     network
 target.path = /usr/bin/
 config.files = Magellan.conf
-config.path = ~/.config/Logram/
+config.path = /etc/xdg/Logram/
 icons.files = icons
 icons.path = /usr/share/logram/magellan/
 INSTALLS += target \
