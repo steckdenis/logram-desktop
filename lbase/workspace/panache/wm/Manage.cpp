@@ -28,9 +28,9 @@ Client::Client(App *mapp) : QWidget()
 
         /* Charger la configuration */
         border_width    = LConfig::logramValue("Windows/BorderWidth", 4, "Theme").toInt();
-        titlebar_height = LConfig::logramValue("Windows/TitleBarHeight", 20, "Theme").toInt();
+	QString theme   = LConfig::logramValue("Theme", "Theme").toString();        
 
-        theme = LConfig::logramValue("ImagePath", "/usr/share/logram/themes/default/", "Theme").toString();
+	theme = LConfig::logramValue("ImagePath", "/usr/share/logram/themes/default/", "Theme").toString();
 
         bottomleft  = QPixmap(theme + LConfig::logramValue("Windows/BottomLeftCornerImage", "bottomleftcorner.png", "Theme").toString());
         bottomright = QPixmap(theme + LConfig::logramValue("Windows/BottomRightCornerImage", "bottomrightcorner.png", "Theme").toString());
@@ -42,33 +42,35 @@ Client::Client(App *mapp) : QWidget()
         topleftborder = QPixmap(1, titlebar_height);
         toprightborder = QPixmap(1, titlebar_height);
 
-        QSettings set("Logram", "Theme");
-        int red = set.value("Panache/TitleBarRed", 216).toInt();
-        int green = set.value("Panache/TitleBarGreen", 216).toInt();
-        int blue = set.value("Panache/TitleBarBlue", 216).toInt();
+        QSettings set("Logram", "Windows");
+	set.setValue("Titlebar/Color", Qt::black);
+	set.setValue("Titlebar/FinalColor", Qt::white);
+	set.beginGroup("Titlebar");
+        titlebar_height = set.value("Height").toInt();
+	QString type = set.value("Type").toString();
+        if(type == "Picture") bar = QPixmap("/usr/share/Logram/themes/" + theme + "/windows-titlebar.png");
+	else {
+		QVariant var = set.value("Color");
+		QColor Color = var.value<QColor>();
+        	if(type == "Gradient") {
+			var = set.value("FinalColor");
+			QColor FinalColor = var.value<QColor>();
+			QLinearGradient grad;
+			if(set.value("GradientOrientation").toString() == "Vertical") grad = QLinearGradient(QPointF(0, 0), QPointF(800, 0));
+            		else grad = QLinearGradient(QPointF(0, 0), QPointF(0, titlebar_height));
+			grad.setColorAt(0, Color);
+		        grad.setColorAt(1, FinalColor);
+            		QPainter gradientPainter(&bar);
+            		gradientPainter.fillRect(0, 0, 800, titlebar_height, grad);
+        	}
+       		else 
+			bar.fill(Color);
+	}
+	set.endGroup();
 
-        if(set.value("Panache/TitleBarIsGradient").toString()== "true")
-        {
-            bar.fill(Qt::transparent);
-            int finalRed = set.value("Panache/GradientEndRed").toInt();
-            int finalGreen = set.value("Panache/GradientEndGreen").toInt();
-            int finalBlue = set.value("Panache/GradientEndBlue").toInt();
-            
-            QLinearGradient gradient(QPointF(0, 0), QPointF(800, 0));
-
-            if(set.value("Panache/GradientOrientation").toString() == "Horizontal") { // si le dégradé est horizontal, on le redéfinit
-                gradient.setFinalStop(QPointF(0, titlebar_height)); }
-
-            gradient.setColorAt(0, QColor(red, green, blue));
-            gradient.setColorAt(1, QColor(finalRed, finalGreen, finalBlue));
-            QPainter gradientPainter(&bar);
-            gradientPainter.fillRect(0, 0, 800, 19, gradient);
-        }
-        else { bar.fill(QColor(red, green, blue)); }
-
-        topleftborder.fill(QColor(0, 0, 0));
-        toprightborder.fill(QColor(0, 0, 0));
-        titlebarborder.fill(QColor(0, 0, 0));
+        topleftborder.fill(Qt::black);
+        toprightborder.fill(Qt::black);
+        titlebarborder.fill(Qt::black);
 
         cornersize = LConfig::logramValue("Windows/CornerSize", 20, "Theme").toInt();
         fontname   = LConfig::logramValue("Windows/TitlebarFontName", "DejaVu Sans", "Theme").toString();
