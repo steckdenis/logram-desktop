@@ -19,7 +19,9 @@ HEADERS +=	include/App.h \
 		include/MenuManager.h \
 		include/StartMenu.h \
 		include/TaskBar.h \
-		include/ToolBar.h 
+                include/ToolBar.h \
+                include/DesktopPanel.h \
+                include/StartButton.h
 
 SOURCES += 	App.cpp \
 		ToolBar.cpp \
@@ -31,7 +33,9 @@ SOURCES += 	App.cpp \
 		SubTab.cpp \
 		MenuManager.cpp \
 		StartMenu.cpp \
-		TaskBar.cpp
+                TaskBar.cpp \
+                DesktopPanel.cpp \
+                StartButton.cpp
 
 target.path=/usr/bin
 

@@ -29,7 +29,7 @@
 #include <IPanacheDesktopDecoratorPlugin.h>
 #include <DesktopPluginContainer.h>
 #include <ToolBar.h>
-
+#include <DesktopPanel.h>
 
 class App;
 
@@ -66,6 +66,7 @@ private:
 	LDirView *view;
         QList<DesktopPluginContainer *> plugins;
 	ToolBar *toolBar;
+        DesktopPanel *panel;
 };
 
 #endif

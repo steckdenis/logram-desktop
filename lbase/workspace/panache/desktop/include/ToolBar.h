@@ -29,6 +29,7 @@
 #include <LConfig.h> 
 #include <QHBoxLayout>
 #include <QWidget>
+#include <QSettings>
 
 /**
  * \class ToolBar
@@ -43,11 +44,12 @@ class ToolBar : public QWidget
 	public:
 	ToolBar(QWidget *mwidget);
 	void changeAdress(QString path);
+	void loadSettings();
 
 	private:
 
 	protected:
-	void updatePosition();
+	void updatePosition(int pos, int size);
 	virtual void paintEvent(QPaintEvent *event);
   
 	signals:
@@ -67,6 +69,13 @@ class ToolBar : public QWidget
 	
 	QLineEdit *adressBar;
 
+	// Settings
+	QPixmap pix;
+	QString Type;
+	QColor Color;
+	QColor FinalColor;
+	QLinearGradient grad;
+	int pos;
 };
 
 #endif // __TOOL_BAR__

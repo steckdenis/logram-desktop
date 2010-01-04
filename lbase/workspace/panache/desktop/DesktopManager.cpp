@@ -67,7 +67,30 @@ DesktopManager::DesktopManager(App *mapp) : QObject(mapp)
         view->setDir(LConfig::logramValue("Desktop/homeDir", QDir::homePath() + "/Bureau", "Theme").toString());
 	view->move(0, 30);
 
+        panel = new DesktopPanel(desktopWidget);
+        panel->show();
+
         lv->setGeometry(desktopWidget->geometry());
+	
+	QSettings panelSettings("Logram", "Panel");
+	int panelPos = panelSettings.value("Position").toInt();
+	switch(panelPos) {
+		case 1 :
+			view->resize(desktopWidget->width(), desktopWidget->height() - panel->height());
+			view->move(0, panel->height());
+			break;		
+		case 2 :
+			view->resize(desktopWidget->width() - panel->width(), desktopWidget->height());
+			view->move(0, 0);
+			break;
+		case 4 :
+			view->resize(desktopWidget->width() - panel->width(), desktopWidget->height());
+			view->move(panel->width(), 0);
+			break;
+		default :
+			view->resize(desktopWidget->width(), desktopWidget->height() - panel->height());
+			view->move(0, 0);
+			break; }
 
         QPalette p = lv->palette();
         p.setBrush(QPalette::Window, Qt::transparent);
