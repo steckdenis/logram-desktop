@@ -57,8 +57,6 @@ void Client::paintEvent(QPaintEvent *event)
         //Image des angles
         painter.drawPixmap(0, height() - bottomleft.height(), bottomleft);
         painter.drawPixmap(width() - bottomright.width(), height() - bottomright.height(), bottomright);
-        painter.drawPixmap(0, 0, topleftborder); // bord noir de la barre de titre
-        painter.drawPixmap(width() - 1, 0, toprightborder); // deuxième bord noir
 
         //Barre de titre
         QFont        mfont(fontname, fontsize);
@@ -72,9 +70,10 @@ void Client::paintEvent(QPaintEvent *event)
         {
                 fwidth = width() - (48 + (5 * border_width) + 10 + 16 + tbwidth);
         }
-
-        painter.drawPixmap(1, 1, width() - 2, titlebar_height - 1, bar);
-        painter.drawPixmap(0, 0, width(), 1, titlebarborder);
+	
+	painter.drawPixmap(0, 0, cornersize, cornersize, topleft);
+        painter.drawPixmap(cornersize, 0, width() - (2 * cornersize), titlebar_height, bar);
+	painter.drawPixmap(width() - cornersize, 0, cornersize, cornersize, topright);
 
         //Dessiner le titre
         painter.setPen(QColor(textcolor));
@@ -99,9 +98,9 @@ void Client::addControls()
         lblIcon->show();
 
         //Boutons
-        btnclose   = new LImageButton(QPixmap(theme + "windowclose.png"), QPixmap(theme + "windowclose_active.png"), this);
-        btnmaximum = new LImageButton(QPixmap(theme + "windowmaxi.png"), QPixmap(theme + "windowmaxi_active.png"), this);
-        btnminimum = new LImageButton(QPixmap(theme + "windowmini.png"), QPixmap(theme + "windowmini_active.png"), this);
+        btnclose   = new LImageButton(QPixmap("/home/lfs/Bureau/default/pictures/window-close.png"), QPixmap("/home/lfs/Bureau/default/pictures/window-close-hovered.png"), this);
+        btnmaximum = new LImageButton(QPixmap("/home/lfs/Bureau/default/pictures/window-maximize.png"), QPixmap("/home/lfs/Bureau/default/pictures/window-maximize-hovered.png"), this);
+        btnminimum = new LImageButton(QPixmap("/home/lfs/Bureau/default/pictures/window-minimize.png"), QPixmap("/home/lfs/Bureau/default/pictures/window-minimize-hovered.png"), this);
 
         //Position
         calcPos();

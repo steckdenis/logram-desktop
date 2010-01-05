@@ -258,18 +258,11 @@ void Client::maxClicked(bool checked)
                 aw = width();
                 ah = height();
 
-                //Prendre la taille de la fenêtre Root
-                int screenWidth  = QApplication::desktop()->width();
-                int screenHeight = QApplication::desktop()->height();
-
-                //Redimensionner
-                setGeometry(0, 0, screenWidth, screenHeight);
+                //Redimensionner à la taille de la fenêtre Root
+                setGeometry(0, 0, QApplication::desktop()->width(), QApplication::desktop()->height());
         }
         else
-        {
-                //Restaurer l'ancienne taille et position
                 setGeometry(ax, ay, aw, ah);
-        }
 }
 
 void Client::mouseDoubleClickEvent(QMouseEvent *event)

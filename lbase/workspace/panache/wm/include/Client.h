@@ -76,7 +76,7 @@ private:
 
         int     border_width, titlebar_height;
         QString theme, fontname, textcolor;
-        QPixmap topleft, topright, bottomleft, bottomright, mleft, mright, mbottom, mtitle, titlebar, bar, toprightborder, topleftborder, titlebarborder;
+        QPixmap topleft, topright, bottomleft, bottomright, mleft, mright, mbottom, mtitle, titlebar, bar;
         int     fontsize, cornersize;
 
         void getTitle();

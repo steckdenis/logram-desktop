@@ -19,63 +19,32 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor,
  * Boston, MA  02110-1301  USA
  */
-
 #include <Client.h>
+#include <QMessageBox>
 
 Client::Client(App *mapp) : QWidget()
 {
         app = mapp;
+	QSettings set("Logram", "Theme");
+        QString theme = set.value("Theme").toString();
+	QString path = "/usr/share/logram/themes/" + theme + "/";
+        bottomleft  = QPixmap(path + "bottomleftcorner.png");
+        bottomright = QPixmap(path + "bottomrightcorner.png");
+	topleft     = QPixmap("/home/lfs/Bureau/default/pictures/window-topleft-corner.png");
+	topright    = QPixmap("/home/lfs/Bureau/default/pictures/window-topright-corner.png"); 
+        mleft       = QPixmap(path + "leftside.png");
+        mright      = QPixmap(path + "rightside.png");
+        mbottom     = QPixmap(path + "bottomside.png");
+        bar         = QPixmap("/home/lfs/Bureau/default/pictures/window-titlebar.png");
 
-        /* Charger la configuration */
-        border_width    = LConfig::logramValue("Windows/BorderWidth", 4, "Theme").toInt();
-	QString theme   = LConfig::logramValue("Theme", "Theme").toString();        
-
-	theme = LConfig::logramValue("ImagePath", "/usr/share/logram/themes/default/", "Theme").toString();
-
-        bottomleft  = QPixmap(theme + LConfig::logramValue("Windows/BottomLeftCornerImage", "bottomleftcorner.png", "Theme").toString());
-        bottomright = QPixmap(theme + LConfig::logramValue("Windows/BottomRightCornerImage", "bottomrightcorner.png", "Theme").toString());
-        mleft       = QPixmap(theme + LConfig::logramValue("Windows/LeftSideImage", "leftside.png", "Theme").toString());
-        mright      = QPixmap(theme + LConfig::logramValue("Windows/RightSideImage", "rightside.png", "Theme").toString());
-        mbottom     = QPixmap(theme + LConfig::logramValue("Windows/BottomSideImage", "bottomside.png", "Theme").toString());
-        bar         = QPixmap(800, 19);
-        titlebarborder = QPixmap(20, 1);
-        topleftborder = QPixmap(1, titlebar_height);
-        toprightborder = QPixmap(1, titlebar_height);
-
-        QSettings set("Logram", "Windows");
-	set.setValue("Titlebar/Color", Qt::black);
-	set.setValue("Titlebar/FinalColor", Qt::white);
-	set.beginGroup("Titlebar");
-        titlebar_height = set.value("Height").toInt();
-	QString type = set.value("Type").toString();
-        if(type == "Picture") bar = QPixmap("/usr/share/Logram/themes/" + theme + "/windows-titlebar.png");
-	else {
-		QVariant var = set.value("Color");
-		QColor Color = var.value<QColor>();
-        	if(type == "Gradient") {
-			var = set.value("FinalColor");
-			QColor FinalColor = var.value<QColor>();
-			QLinearGradient grad;
-			if(set.value("GradientOrientation").toString() == "Vertical") grad = QLinearGradient(QPointF(0, 0), QPointF(800, 0));
-            		else grad = QLinearGradient(QPointF(0, 0), QPointF(0, titlebar_height));
-			grad.setColorAt(0, Color);
-		        grad.setColorAt(1, FinalColor);
-            		QPainter gradientPainter(&bar);
-            		gradientPainter.fillRect(0, 0, 800, titlebar_height, grad);
-        	}
-       		else 
-			bar.fill(Color);
-	}
+	set.beginGroup("Windows");
+	border_width = set.value("BorderWidth").toInt();
+        cornersize = set.value("Titlebar-height").toInt();
+	titlebar_height = cornersize;
+        fontname   = set.value("Titlebar-font-family").toString();
+        fontsize   = 12;
+        textcolor  = "#000000";
 	set.endGroup();
-
-        topleftborder.fill(Qt::black);
-        toprightborder.fill(Qt::black);
-        titlebarborder.fill(Qt::black);
-
-        cornersize = LConfig::logramValue("Windows/CornerSize", 20, "Theme").toInt();
-        fontname   = LConfig::logramValue("Windows/TitlebarFontName", "DejaVu Sans", "Theme").toString();
-        fontsize   = LConfig::logramValue("Windows/TitlebarFontSize", 13, "Theme").toInt();
-        textcolor  = LConfig::logramValue("Panache/WindowTitleColor", "#000000", "Theme").toString();
 }
 
 bool Client::init(Window win)
