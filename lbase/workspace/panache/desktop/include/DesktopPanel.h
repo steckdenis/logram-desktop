@@ -42,12 +42,10 @@ class DesktopPanel : public QWidget
         //For clock
             void timerTimeout();
             void paintEvent(QPaintEvent *event);
-            void loadSettings();
 
     private:
         QWidget *widget;
         QBoxLayout *panel_organize;
-	QPixmap pix;
 
         //Start Button
             StartButton *menu;

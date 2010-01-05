@@ -49,7 +49,6 @@ DesktopPanel::DesktopPanel(QWidget *parent) : QWidget(parent)
 			move(0, widget->height() - height());
 			break;
 		}    
-	loadSettings();
 
     //menu
         menu = new StartButton(this);
@@ -94,43 +93,13 @@ void DesktopPanel::timerTimeout()
 
     time->setText(hour);
 }
-
-void DesktopPanel::loadSettings()
-{
-	QSettings set("Logram", "Panel");
-	set.beginGroup("Background");
-	QSettings theme("Logram", "Theme");
-	pix = QPixmap(width(), height());
-	QString type = set.value("Type").toString();
-	if(type == "Picture") pix = QPixmap("/usr/share/Logram/themes/" + theme.value("Theme").toString() + "/panel.png");
-	else {
-		QVariant var = set.value("Color");	
-		QColor Color = var.value<QColor>();
-		if(type == "Gradient") {
-			var = set.value("FinalColor");
-			QColor FinalColor = var.value<QColor>();	
-			QLinearGradient grad;
-			if(set.value("GradientOrientation").toString() == "Vertical") grad = QLinearGradient(QPointF(0, 0), QPointF(width(), 0));
-			else grad = QLinearGradient(QPointF(0, 0), QPointF(0, height()));
-			grad.setColorAt(0, Color);
-			grad.setColorAt(1, FinalColor);
-			QPainter paint(&pix);	
-			paint.fillRect(0, 0, width(), height(), grad);
-		}
-		else 
-			pix.fill(Color);
-	}
-	set.endGroup();
-}
 			
 void DesktopPanel::paintEvent(QPaintEvent *event)
 {
-    QPainter painter(this);
-	QBrush brush(pix);	
-	painter.setBrush(brush);
-	painter.setRenderHint(QPainter::Antialiasing);	
+	QSettings set("Logram", "Theme");
+   	QPainter painter(this);
+	painter.setBrush(QBrush(QPixmap("/home/lfs/Bureau/default/pictures/panel.png")));
 	painter.drawRect(0, 0, width(), height());
     
-
-    QWidget::paintEvent(event);
+    	QWidget::paintEvent(event);
 }

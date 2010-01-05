@@ -132,7 +132,7 @@ void ToolBar::updatePosition(int pos, int size) // place le widget à la bonne p
 		}
 
 	 int n_size = width() * size / 100;
-	 resize(n_size, height());
+	// resize(n_size, height());
 }
 
 void ToolBar::loadSettings()
@@ -171,25 +171,13 @@ void ToolBar::loadSettings()
 void ToolBar::paintEvent(QPaintEvent *event) // s'occuppe du fond du widget
 {
 	  QPainter painter(this);
-          brush = QBrush(pix);
- 	  painter.setBrush(brush);
-	  painter.setRenderHint(QPainter::Antialiasing);
-	  painter.drawRoundedRect(0, 0, width(), height(), 10, 10, Qt::AbsoluteSize);
+	QPixmap left("/home/lfs/Bureau/default/pictures/desktoq-left.png");
+	QPixmap center("/home/lfs/Bureau/default/pictures/desktoq.png");
+	QPixmap right("/home/lfs/Bureau/default/pictures/desktoq-right.png");
 
-//	  QPixmap n_pix;
-        /*  switch(pos) {
-		case(1):
-			n_pix = pix.copy(0, 0, pix.width(), pix.height() / 2);
-	 	        brush = QBrush(n_pix);
-	  		painter.setBrush(brush);
-	  		painter.drawRect(0, 0, width(), height() / 2); 
-		case(2):
-			n_pix = pix.copy(pix.width() - pix.width() / 2, 0, pix.width() / 2, pix.height());
-	 		brush = QBrush(n_pix);
-			painter.setBrush(brush);
-	  		painter.drawRect(width() - width() / 2, 0, width() / 2, height()); }
-*/
-
+	painter.drawPixmap(0, 0, 50, 35, left);
+	painter.drawPixmap(50, 0, width() - 100, 35, center);
+	painter.drawPixmap(width() - 50, 0, 50, 35, right);
 
 	  QWidget::paintEvent(event);
 }
