@@ -22,12 +22,14 @@
 
 #include <LImageButton.h>
 
-LImageButton::LImageButton(QPixmap mnorm, QPixmap mactive, QWidget *parent) : QPushButton(parent)
+LImageButton::LImageButton(QPixmap mnorm, QPixmap mactive, QPixmap mpressed, QWidget *parent) : QPushButton(parent)
 {
-        mhover = false;
-        norm   = mnorm;
-        active = mactive;
-
+	isPressed = false;
+        mhover    = false;
+        norm      = mnorm;
+       	active = mactive;	
+	pressed = mpressed;	
+		
         setCursor(Qt::ArrowCursor);
 }
 
@@ -47,18 +49,31 @@ void LImageButton::leaveEvent(QEvent *event)
         (void)event;
 }
 
+void LImageButton::mousePressEvent(QEvent *event) 
+{
+	isPressed = true;
+	repaint(0, 0, width(), height());
+
+	(void)event;
+}
+
+void LImageButton::mouseReleaseEvent(QEvent *event)
+{
+	isPressed = false;	
+	repaint(0, 0, width(), height());
+	
+	(void)event;
+}
 void LImageButton::paintEvent(QPaintEvent *event)
 {
         QPainter painter(this);
 
         if (isChecked() || mhover)
-        {
                 painter.drawPixmap(0, 0, active);
-        }
-        else
-        {
+	else if (isPressed)
+		painter.drawPixmap(0, 0, pressed);
+        else 
                 painter.drawPixmap(0, 0, norm);
-        }
 
         (void)event;
 }

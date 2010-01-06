@@ -57,16 +57,17 @@ public:
          * \param mactive QPixmap affichée quand le bouton est survolé ou appuyé
          * \param parent QWidget parent du bouton
          */
-        LImageButton(QPixmap mnorm, QPixmap mactive, QWidget *parent = 0);
+        LImageButton(QPixmap mnorm, QPixmap mactive, QPixmap mpressed, QWidget *parent = 0);
 
 protected:
         virtual void enterEvent(QEvent *event);
         virtual void leaveEvent(QEvent *event);
         virtual void paintEvent(QPaintEvent *event);
-
+	virtual void mousePressEvent(QEvent *event);
+	virtual void mouseReleaseEvent(QEvent *event);
 private:
-        bool    mhover;
-        QPixmap norm, active;
+        bool    mhover, isPressed;
+        QPixmap norm, active, pressed;
 };
 
 #endif

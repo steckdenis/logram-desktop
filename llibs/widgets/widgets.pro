@@ -10,7 +10,7 @@ INCLUDEPATH += include ../lio/include ../misc/include
 OBJECTS_DIR = ./obj/
 MOC_DIR = ./obj/
 LIBS += -L../misc -L../lio -llmisc -llio
-QT += network
+QT += network webkit
 
 # Input
 HEADERS +=	include/LImageButton.h \
@@ -18,14 +18,32 @@ HEADERS +=	include/LImageButton.h \
 		include/LDirBar.h \
 		include/LDirTree.h \
 		include/LDirActions.h \
-		include/LRibbon.h
+		include/LRibbon.h \
+		include/LCharacterTable.h \
+		include/LCharacterWindow.h \
+		include/LBookmarksManager.h \
+		include/LAdressBar.h \
+		include/LPushButton.h \
+		include/LProgressBar.h \
+		include/LGroupBox.h \
+		include/LSlider.h \
+		include/LLineEdit.h 
 
 SOURCES +=	Misc/LImageButton.cpp \
 		FileManagment/LDirView.cpp \
 		FileManagment/LDirBar.cpp \
 		FileManagment/LDirTree.cpp \
 		FileManagment/LDirActions.cpp \
-		Misc/LRibbon.cpp
+		FileManagment/LBookmarksManager.cpp \
+		Misc/LRibbon.cpp \
+		Misc/LCharacterTable.cpp \
+		Misc/LCharacterWindow.cpp \
+		Misc/LAdressBar.cpp \
+		Gui/LPushButton.cpp \
+		Gui/LProgressBar.cpp \
+		Gui/LGroupBox.cpp \
+		Gui/LSlider.cpp \
+		Gui/LLineEdit.cpp 
 
 target.path=/usr/lib
 
