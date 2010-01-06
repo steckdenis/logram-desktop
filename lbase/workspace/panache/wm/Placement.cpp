@@ -259,7 +259,23 @@ void Client::maxClicked(bool checked)
                 ah = height();
 
                 //Redimensionner à la taille de la fenêtre Root
-                setGeometry(0, 0, QApplication::desktop()->width(), QApplication::desktop()->height());
+		QSettings panel_set("Logram", "Panel");
+		int panel_size = panel_set.value("Size").toInt();
+		int panel_pos = panel_set.value("Position").toInt();
+		switch(panel_pos) {
+			case (1) :
+                		setGeometry(0, panel_size, QApplication::desktop()->width(), QApplication::desktop()->height() - panel_size);
+				break;
+			case (2) :
+				setGeometry(0, 0, QApplication::desktop()->width() - panel_size, QApplication::desktop()->height());
+				break;
+			case (4) :	
+				setGeometry(panel_size, 0, QApplication::desktop()->width() - panel_size, QApplication::desktop()->height());
+				break;
+			default :
+				setGeometry(0, 0, QApplication::desktop()->width(), QApplication::desktop()->height() - panel_size);
+				break;
+			}
         }
         else
                 setGeometry(ax, ay, aw, ah);

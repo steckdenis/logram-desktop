@@ -98,9 +98,9 @@ void Client::addControls()
         lblIcon->show();
 
         //Boutons
-        btnclose   = new LImageButton(QPixmap("/home/lfs/Bureau/default/pictures/window-close.png"), QPixmap("/home/lfs/Bureau/default/pictures/window-close-hovered.png"), this);
-        btnmaximum = new LImageButton(QPixmap("/home/lfs/Bureau/default/pictures/window-maximize.png"), QPixmap("/home/lfs/Bureau/default/pictures/window-maximize-hovered.png"), this);
-        btnminimum = new LImageButton(QPixmap("/home/lfs/Bureau/default/pictures/window-minimize.png"), QPixmap("/home/lfs/Bureau/default/pictures/window-minimize-hovered.png"), this);
+        btnclose   = new LImageButton(QPixmap("/home/lfs/Bureau/default/pictures/window-close.png"), QPixmap("/home/lfs/Bureau/default/pictures/window-close-hovered.png"), QPixmap("/home/lfs/Bureau/default/pictures/window-close-hovered.png"), this);
+        btnmaximum = new LImageButton(QPixmap("/home/lfs/Bureau/default/pictures/window-maximize.png"), QPixmap("/home/lfs/Bureau/default/pictures/window-maximize-hovered.png"), QPixmap("/home/lfs/Bureau/default/pictures/window-maximize-hovered.png"), this);
+        btnminimum = new LImageButton(QPixmap("/home/lfs/Bureau/default/pictures/window-minimize.png"), QPixmap("/home/lfs/Bureau/default/pictures/window-minimize-hovered.png"),QPixmap("/home/lfs/Bureau/default/pictures/window-minimize-hovered.png"), this);
 
         //Position
         calcPos();
