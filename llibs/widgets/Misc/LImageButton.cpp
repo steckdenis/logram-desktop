@@ -69,11 +69,11 @@ void LImageButton::paintEvent(QPaintEvent *event)
         QPainter painter(this);
 
         if (isChecked() || mhover)
-                painter.drawPixmap(0, 0, active);
+                painter.drawPixmap(0, 0, width(), height(), active);
 	else if (isPressed)
-		painter.drawPixmap(0, 0, pressed);
+		painter.drawPixmap(0, 0, width(), height(), pressed);
         else 
-                painter.drawPixmap(0, 0, norm);
+                painter.drawPixmap(0, 0, width(), height(), norm);
 
         (void)event;
 }
