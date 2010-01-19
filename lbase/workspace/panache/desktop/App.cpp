@@ -46,8 +46,7 @@ App::App(int& argc, char *argv[]) : LApplication(argc, argv)
         connect(tma, SIGNAL(toDesktop(TabPluginContainer *)), this, SLOT(toDesktop(TabPluginContainer *)));
 
         mma = new MenuManager(this);
-        tbr = new TaskBar(this);
-
+        
         //Connect D-Bus signal wich allow reloading on the fly plugins' list
         QDBusConnection connection = QDBusConnection::sessionBus();
         connection.connect(QString(), QString(), "org.logram-project.panache", "updateDesktopPlugins", this, SLOT(loadPlugins()));
@@ -177,7 +176,6 @@ MenuManager *App::menuManager()
 bool App::x11EventFilter(XEvent *event)
 {
         mma->appEvent(event);
-        tbr->appEvent(event);
-
+        
         return false;
 }

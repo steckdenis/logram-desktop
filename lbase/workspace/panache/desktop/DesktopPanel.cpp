@@ -98,7 +98,7 @@ void DesktopPanel::paintEvent(QPaintEvent *event)
 {
 	QSettings set("Logram", "Theme");
    	QPainter painter(this);
-	painter.setBrush(QBrush(QPixmap("/home/lfs/Bureau/default/pictures/panel.png")));
+	painter.setBrush(QBrush(QPixmap("/usr/share/logram/themes/" + set.value("Theme").toString() + "/panel.png")));
 	painter.drawRect(0, 0, width(), height());
     
     	QWidget::paintEvent(event);
