@@ -47,7 +47,7 @@ LIconLoader::LIconLoader(QString theme, QObject *parent) : QObject(parent)
         //Explorer le thème
         if (theme.isNull())
         {
-                theme = LConfig::logramValue("IconTheme", "hicolor", "Theme").toString();
+                theme = LConfig::logramValue("IconTheme", "logram", Theme").toString();
         }
 
         exploreThemes(theme);
