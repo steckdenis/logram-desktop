@@ -8,12 +8,11 @@
 class Tabs : public QTabWidget
 {
 public:
-    Tabs(mwindow *mparent);
+    Tabs();
     WebView *page();
 public slots:
     void makeTab(QUrl);
 private:
-    mwindow *parent;
-};
+   };
 
 #endif // TABS_H

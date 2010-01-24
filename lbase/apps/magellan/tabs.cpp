@@ -1,8 +1,7 @@
 #include "tabs.h"
 
-Tabs::Tabs(mwindow *mparent)
+Tabs::Tabs()
 {
-    parent = mparent;
 
     //set object properties
 #if QT_VERSION >= 0x040500
