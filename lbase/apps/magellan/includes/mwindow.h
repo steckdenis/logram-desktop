@@ -1,38 +1,16 @@
+#ifndef _MWINDOW_
+#define _MWINDOW_
+
 #include <QtWebKit>
 #include <QtNetwork>
-#include <QMainWindow>
-#include <QMenuBar>
-#include <QMenu>
-#include <QToolBar>
-#include <QAction>
-#include <QLineEdit>
-#include <QStatusBar>
-#include <QProgressBar>
-#include <QTabWidget>
-#include <QWidget>
-#include <QVBoxLayout>
-#include <QFileDialog>
-#include <QPrinter>
-#include <QPrintDialog>
-#include <QMessageBox>
-#include <QSettings>
-#include <QStringList>
-#include <QInputDialog>
-#include <QPushButton>
-#include <QGridLayout>
-#include <QLabel>
-#include <QFontComboBox>
-#include <QCloseEvent>
-#include <QComboBox>
-#include <QSpinBox>
-#include <QFontDialog>
-#include "QTopSite.h"
-#include <QGroupBox>
-#include <QBoxLayout>
-#include <QPixmap>
-#include <QTransform>
+#include <QtGui>
+
+#include <LAdressBar.h>
+#include <LBookmarksManager.h>
 
 #include "googlecompleter.h"
+#include "tabs.h"
+#include "toolbar.h"
 
 class mwindow : public QMainWindow
 {
@@ -40,21 +18,17 @@ class mwindow : public QMainWindow
 
 public:
         mwindow(); // constructeur
-        QWidget *makeTab(QString url);
-        QWebView *currentPage();
         QIcon favicon(QString url);
+        QUrl parseUrl(QUrl);
 
 public slots:
 
         // tabs and window management slots
-        void changeUrl(const QUrl & url);
         void changeTitle(const QString & title);
-        void switchTab(int index);
+        void changeUrl(const QUrl & url);
+        void tabChanged(int);
 
         void newWin();
-
-        void addTab();
-        void closeTab();
 
         // file slots
         void open();
@@ -63,8 +37,8 @@ public slots:
         // web internal slots
         void load();
         void loadingStarted();
-        void loadingProgress(int loading);
-        void loadingFinished(bool ok);
+        void loadingProgress(int);
+        void loadingFinished(bool);
 
         // navigation slots
         void back();
@@ -89,11 +63,6 @@ public slots:
         void about();
         void aboutLogram();
 
-        // bookmarks management slots
-        void updateBookmarks(QMenu *menu);
-	void addBookmark(bool);
-	void bookmarkClicked(bool);
-
 	// slots de la fenêtre d'options
         void openSettings();
 	void defineStart(int index);
@@ -110,32 +79,17 @@ public slots:
 
 private:
         QString iconPath;
-	
-        // barre d'état
-	QStatusBar *statusBar; 
-	QProgressBar *progressBar;
 
-        //bare d'outils
-        QAction *reload;
-        QLineEdit *adressBar;
-        GoogleCompleter *completer;
-        QMenu *bookmarks;
+        // barre
+        ToolBar *bar;
 
 	// onglets
-	QTabWidget *tabs;
+        Tabs *tabs;
         QPushButton *newTabCornerButton;
 	
 	// fenetre d'options 
 	QMainWindow *settingsWindow;
-	QLineEdit *homeLineEdit;
-	
-	// structures et widgets relatifs à la gestion des marques pages
-	struct Signet
-        {
-                QString title;
-                QString url;
-        };
-        QHash<QAction *, Signet *> signets;
+        QLineEdit *homeLineEdit;
 
 	// gestion des préférences (fichier de configuration et paramètres web)
 	QSettings *settings;
@@ -144,3 +98,5 @@ private:
 protected:
 	void closeEvent(QCloseEvent *event);
 };
+
+#endif

@@ -42,12 +42,7 @@ ToolBar::ToolBar(QWidget *mwidget) : QWidget(mwidget)
 	  QSettings set("Logram", "DesktoQ");
 	  QString iconPath = "/usr/share/logram/icons";
 
-	  set.setValue("Background/Color", Qt::blue);
-	  set.setValue("Background/FinalColor", Qt::red);
-
 	  loadSettings();
-		  
-
 
 	  // définition des widgets de la barre d'outils
 	  QPushButton *back = new QPushButton();
@@ -144,36 +139,16 @@ void ToolBar::loadSettings()
 	int size = set.value("Size").toInt();
 	updatePosition(pos, size);
 
-	// theme management
-	set.beginGroup("Background"); 
-	Type = set.value("Type").toString();
-	pix = QPixmap(750, 35);
-	if(Type == "Picture") pix = QPixmap("/usr/share/logram/themes/" + set.value("Theme").toString() + "/toolbar.png");
-	else {	
-		QVariant var = set.value("Color");
-		Color = var.value<QColor>();
-		if(Type == "Gradient") {
-			var = set.value("FinalColor");
-			FinalColor = var.value<QColor>();
-			if (set.value("GradientOrientation").toString() == "Vertical") grad = QLinearGradient(QPointF(0, 0), QPointF(750, 0));
-			else grad = QLinearGradient(QPointF(0, 0), QPointF(0, 35));
-			grad.setColorAt(0, Color);
-			grad.setColorAt(1, FinalColor);
-			QPainter paint(&pix);
-			paint.fillRect(0, 0, 750, 35, grad);			
-		}
-		else { pix.fill(Color); }
-	}
-
-	set.endGroup();
 }
 			
 void ToolBar::paintEvent(QPaintEvent *event) // s'occuppe du fond du widget
 {
 	  QPainter painter(this);
-	QPixmap left("/home/lfs/Bureau/default/pictures/desktoq-left.png");
-	QPixmap center("/home/lfs/Bureau/default/pictures/desktoq.png");
-	QPixmap right("/home/lfs/Bureau/default/pictures/desktoq-right.png");
+	QSettings set("Logram", "Theme");
+	QString path = "/usr/share/logram/themes/" + set.value("Theme").toString() + "/";
+	QPixmap left(path + "desktoq-left.png");
+	QPixmap center(path + "desktoq.png");
+	QPixmap right(path + "desktoq-right.png");
 
 	painter.drawPixmap(0, 0, 50, 35, left);
 	painter.drawPixmap(50, 0, width() - 100, 35, center);

@@ -43,7 +43,6 @@ Win::Win(QString path) : QMainWindow()
 {
         //Charger la configuration
         cfg = new LConfig("BLoQ", this);
-
         restoreState();
 
         //Charger les icônes
@@ -65,11 +64,13 @@ Win::Win(QString path) : QMainWindow()
 
         //Créer l'espace de travail
         tabs = new QTabWidget(this);
+
 #if QT_VERSION >= 0x040500
         tabs->setTabsClosable(true);
         tabs->setMovable(true);
         connect(tabs, SIGNAL(tabCloseRequested(int)), this, SLOT(closeTab(int)));
 #endif
+
         connect(tabs, SIGNAL(currentChanged(int)), this, SLOT(changeTab(int)));
         setCentralWidget(tabs);
 
@@ -96,13 +97,8 @@ Win::Win(QString path) : QMainWindow()
 
         //Afficher le dossier courant
         if (path.isEmpty())
-        {
                 addTab(QDir::currentPath());
-        }
-        else
-        {
-                addTab(path);
-        }
+        else addTab(path);
 }
 
 void Win::addTab(QString path)
@@ -172,8 +168,8 @@ void Win::createTools()
 {
         QToolBar *bar = new QToolBar(this);
 
-        mback = bar->addAction(iloader->icon("go-previous"), tr("Précédant"), this, SLOT(back()));
-        mnext = bar->addAction(iloader->icon("go-next"), tr("Suivant"), this, SLOT(next()));
+        mback = bar->addAction(iloader->icon("go-previous"), tr("Précédente"), this, SLOT(back()));
+        mnext = bar->addAction(iloader->icon("go-next"), tr("Suivante"), this, SLOT(next()));
         mup   = bar->addAction(iloader->icon("go-up"), tr("Remonter"), this, SLOT(cdup()));
         bar->addSeparator();
         bar->addAction(iloader->icon("go-home"), tr("Home"), this, SLOT(cdhome()));

@@ -26,16 +26,16 @@ Client::Client(App *mapp) : QWidget()
 {
         app = mapp;
 	QSettings set("Logram", "Theme");
-        QString theme = set.value("Theme").toString();
-	QString path = "/usr/share/logram/themes/" + theme + "/";
+        theme = set.value("Theme").toString();
+	path = "/usr/share/logram/themes/" + theme + "/";
         bottomleft  = QPixmap(path + "bottomleftcorner.png");
         bottomright = QPixmap(path + "bottomrightcorner.png");
-	topleft     = QPixmap("/home/lfs/Bureau/default/pictures/window-topleft-corner.png");
-	topright    = QPixmap("/home/lfs/Bureau/default/pictures/window-topright-corner.png"); 
+	topleft     = QPixmap(path + "window-topleft-corner.png");
+	topright    = QPixmap(path + "window-topright-corner.png"); 
         mleft       = QPixmap(path + "leftside.png");
         mright      = QPixmap(path + "rightside.png");
         mbottom     = QPixmap(path + "bottomside.png");
-        bar         = QPixmap("/home/lfs/Bureau/default/pictures/window-titlebar.png");
+        bar         = QPixmap(path + "window-titlebar.png");
 
 	set.beginGroup("Windows");
 	border_width = set.value("BorderWidth").toInt();

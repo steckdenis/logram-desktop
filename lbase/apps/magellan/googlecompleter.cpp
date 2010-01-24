@@ -37,7 +37,6 @@
 
      connect(&networkManager, SIGNAL(finished(QNetworkReply*)),
              this, SLOT(handleNetworkData(QNetworkReply*)));
-
  }
 
  GoogleCompleter::~GoogleCompleter()

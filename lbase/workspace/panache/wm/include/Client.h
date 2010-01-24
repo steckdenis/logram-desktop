@@ -75,7 +75,7 @@ private:
         LImageButton *btnmaximum, *btnminimum, *btnclose;
 
         int     border_width, titlebar_height;
-        QString theme, fontname, textcolor;
+        QString theme, path, fontname, textcolor;
         QPixmap topleft, topright, bottomleft, bottomright, mleft, mright, mbottom, mtitle, titlebar, bar;
         int     fontsize, cornersize;
 

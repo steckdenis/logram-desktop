@@ -70,12 +70,12 @@ void mwindow::openSettings()
     connect(font, SIGNAL(currentFontChanged(QFont)), this, SLOT(defineFont(QFont)));
 
     startLayout->addWidget(atStart, 0, 0);
-    startLayout->addWidget(startComboBox, 0, 2, 1, 3);
+    startLayout->addWidget(startComboBox, 0, 1, 1, 3);
     startLayout->addWidget(homeLabel, 1, 0);
     startLayout->addWidget(homeLineEdit, 1, 1, 1, 3);
-    startLayout->addWidget(homeCurrentPage, 1, 2);
+    startLayout->addWidget(homeCurrentPage, 2, 1);
     startLayout->addWidget(homeBlankPage, 2, 2);
-    startLayout->addWidget(homeDefaultPage, 2, 2);
+    startLayout->addWidget(homeDefaultPage, 2, 3);
     startLayout->addWidget(font, 3, 0);
 
     start->setLayout(startLayout);
