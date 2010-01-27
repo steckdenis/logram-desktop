@@ -36,3 +36,8 @@ If you want to test in a virtual X-Server, you need Xephyr :
 	$ panache-desktop &
 
 And enjoy with Logram
+
+NOTE: A wiki webpage is available and describes all the necessary steps
+      to test Logram DE in a powerful manner :
+
+	http://logram-project.org/wiki-test-logram-de.html
