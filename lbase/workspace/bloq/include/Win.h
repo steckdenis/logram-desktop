@@ -48,9 +48,6 @@ public:
         void addTab(QString path);
         void displayInfos(QUrlInfo *info);
 
-protected:
-        void closeEvent(QCloseEvent *event);
-
 private slots:
         void closeTab(int);
         void changeTab(int);

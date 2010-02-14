@@ -271,21 +271,6 @@ void Win::updateUndoButtons()
         Gestion des événements
  */
 
-void Win::closeEvent(QCloseEvent *event)
-{
-        int rs = QMessageBox::question(this, tr("Quitter"), tr("Voulez-vous vraiment quitter ?"), QMessageBox::Yes | QMessageBox::No);
-
-        if (rs == QMessageBox::Yes)
-        {
-                saveState();
-                event->accept();
-        }
-        else
-        {
-                event->ignore();
-        }
-}
-
 void Win::closeTab(int index)
 {
         //Il ne peut pas ne plus y avoir d'onglets
