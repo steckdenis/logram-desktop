@@ -31,6 +31,7 @@
 #include <QDir>
 #include <QDateTime>
 #include <QInputDialog>
+#include <QFileDialog>
 
 #include <Win.h>
 
@@ -529,13 +530,12 @@ void Win::newWin(bool)
 
 void Win::open(bool)
 {
-        bool    ok;
-        QString path = QInputDialog::getText(this, tr("Ouvrir un emplacement"), tr("Tapez l'adresse de l'emplacement à ouvrir"), QLineEdit::Normal, QDir::homePath(), &ok);
+    QString path = QFileDialog::getExistingDirectory(this, tr("Ouvrir un emplacement"), QDir::homePath(), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks | QFileDialog::DontUseNativeDialog);
 
-        if (ok)
-        {
-                addTab(path);
-        }
+    if (!path.isEmpty())
+    {
+        addTab(path);
+    }
 }
 
 void Win::newTab(bool)
