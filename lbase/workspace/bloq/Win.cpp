@@ -3,6 +3,7 @@
  * This file is part of BLoQ (Logram)
  *
  * Copyright (C) 2009 - Denis Steckelmacher
+ *               2010 - Flavien Lefebvre <flavien-lefebvre@hotmail.fr>
  *
  * BLoQ (Logram) is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -73,6 +74,11 @@ Win::Win(QString path) : QMainWindow()
 #endif
 
         connect(tabs, SIGNAL(currentChanged(int)), this, SLOT(changeTab(int)));
+        QPushButton *newTabButton = new QPushButton();
+            newTabButton->setIcon(iloader->icon("tab-new"));
+            connect(newTabButton, SIGNAL(clicked(bool)), this, SLOT(newTab(bool)));
+        tabs->setCornerWidget(newTabButton);
+
         setCentralWidget(tabs);
 
         //Créer l'arbre
@@ -216,6 +222,7 @@ void Win::createMenus()
 
         // Menu aide
         aide->addAction(iloader->icon("help-about"), tr("À propos de BLoQ"), this, SLOT(aboutBLoQ(bool)));
+        aide->addAction(iloader->icon("help-about"), tr("À propos de Logram DE"), qApp, SLOT(aboutLogramDE()));
         aide->addAction(iloader->icon("help-about"), tr("À propos de Qt"), qApp, SLOT(aboutQt()));
 }
 
@@ -579,11 +586,12 @@ void Win::aboutBLoQ(bool)
 {
         QString str;
 
-        str  = tr("<h1>BLoQ : Explorateur de fichiers de Logram</h1>");
-        str += tr("<p>BLoQ est l'explorateur de fichiers de Logram, conçu pour être pratique et léger</p>");
+        str  = tr("<h1>BLoQ : Explorateur de fichiers de Logram DE</h1>");
+        str += tr("<p>BLoQ est l'explorateur de fichiers de Logram DE, conçu pour être pratique et léger</p>");
         str += tr("<p>BLoQ est distribué sous les termes de la licence GPL</p>");
-        str += tr("<p><strong>Auteur :</strong> steckdenis &lt;steckdenis@yahoo.fr&gt;</p>");
-        str += tr("<p>Reporter les bugs <a href=\"http://redmine.logram-project.org/projects/steckdenis\">sur le Bug Tracker</a></p>");
+        str += tr("<p><strong>Auteurs :</strong> <br /> steckdenis &lt;steckdenis@yahoo.fr&gt;");
+        str += tr("<br />Flavien Lefebvre &lt;flavien-lefebvre@hotmail.fr&gt;</p>");
+        str += tr("<p>Reporter des bugs, donner de nouvelles idées <a href=\"http://www.logram-project.org/demand-1.html\">sur le site de Logram DE</a>.</p>");
 
         QMessageBox::information(this, tr("À propos de BLoQ"), str);
 }
